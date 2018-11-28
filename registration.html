@@ -12,7 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- jQuery cdn -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <!-- Moment.js Reference -->
@@ -47,6 +48,14 @@
 
                         <!-- Entry Form -->
                         <form>
+                            <div class="form-group">
+                                <label for="first-input">Username</label>
+                                <input class="form-control" id="username-input" placeholder="Username" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="first-input">Password (minimum 6 characters)</label>
+                                <input class="form-control"  type="password" id="password-input" placeholder="At least 6 characters" type="text">
+                            </div>
                             <div class="form-group">
                                 <label for="first-input">First Name</label>
                                 <input class="form-control" id="train-input" placeholder="First Name" type="text">
