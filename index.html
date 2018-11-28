@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interests</title>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // Example queryURL for Giphy API
+        var Google_Places_API_KEY = "AIzaSyD5YTMyDlZYKKMMrlYIguDdqT68DxBrLx4";      //Get it from - https://code.google.com/apis/console/?noredirect#project:647731786600:access
+        var language = "en";        //'en' for English, 'nl' for Nederland's Language
+
+
+        var Auto_Complete_Link = "https://maps.googleapis.com/maps/api/place/autocomplete/json?key=" + Google_Places_API_KEY + "&types=geocode&language=" + language + "&input=Khu";
+        $.ajax({
+            url: Auto_Complete_Link, 
+            type: "GET",   
+            dataType: 'jsonp',
+            cache: false,
+            success: function(response){                          
+                alert(response);                   
+            }           
+        });    
+    </script>
+</body>
+
+</html>
