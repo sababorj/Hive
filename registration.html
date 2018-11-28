@@ -12,11 +12,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- jQuery cdn -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <!-- Moment.js Reference -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Google Font Links-->
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Neuton" rel="stylesheet">
 
     <style>
         #registration-table th,
@@ -48,16 +54,29 @@
                         <!-- Entry Form -->
                         <form>
                             <div class="form-group">
+                                <label for="first-input">Username</label>
+                                <input class="form-control" id="username-input" placeholder="Username" type="text">
+                                <small id="userAlert" class="alert"></small>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="first-input">Password (minimum 6 characters)</label>
+                                <input class="form-control"  type="password" id="password-input" placeholder="At least 6 characters" type="text">
+                                <small id="passAlert" class="alert"></small>
+                            </div>
+                            <div class="form-group">
                                 <label for="first-input">First Name</label>
-                                <input class="form-control" id="train-input" placeholder="First Name" type="text">
+                                <input class="form-control" id="first-input" placeholder="First Name" type="text">
+                                <small id="firstnameAlert" class="alert"></small>
                             </div>
                             <div class="form-group">
                                 <label for="last-input">Last Name</label>
-                                <input class="form-control" id="train-input" placeholder="Last Name" type="text">
+                                <input class="form-control" id="last-input" placeholder="Last Name" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="email-input">Email</label>
                                 <input class="form-control" id="email-input" placeholder="JohnDoe@gmail.com" type="text">
+                                <small id="emailAlert" class="alert"></small>
                             </div>
                             <div class="form-group">
                                 <label for="birthday-input">Birth Date</label>
@@ -66,15 +85,9 @@
                             <div class="form-group">
                                 <label for="zip-input">Zip Code</label>
                                 <input class="form-control" id="zip-input" placeholder="92101" type="text">
+                                <small id="zipcodeAlert" class="alert"></small>
                             </div>
-                            <div class="form-group">
-                                <label for="username-input">Username</label>
-                                <input class="form-control" id="username-input" placeholder="johndoe" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="password-input">Password</label>
-                                <input class="form-control" id="password-input" placeholder="minimum 5 characters" type="text">
-                            </div>
+
                             <button class="btn btn-primary float-right" id="register-user">Submit</button>
                         </form>
 
@@ -85,7 +98,7 @@
 
     </div>
     <!-- javascript link -->
-    <script src="assets/app.js"></script>
+    <script src="assets/javascript/authentication.js"></script>
 </body>
 
 </html>
