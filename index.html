@@ -11,6 +11,8 @@
         crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- jQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <!-- Firebase Refrence -->
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
     <script src="style.css"></script>
@@ -18,57 +20,35 @@
 
 
 </head>
-
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <i class="fas fa-city" id="city-btn"></i>
-        <form class="form-inline">
-            <button class="btn btn-outline-secondary" id="profile-btn" type="button">My Profile</button>
-            <button class="btn btn-outline-secondary" id="settings-btn" type="button">Settings</button>
-        </form>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>About Us</h1>
-                    <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium,
-                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                        fugit,
-                        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                        quisquam
-                        est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-                        eius
-                        modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-                        veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-                        commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-                        nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-                </div>
-                <div class="col-md-6">
-                    <form>
-                        <div class="form-group">
-                            <label for="username">Username (Email)</label>
-                            <input type="email" class="form-control" id="username">
-                            <small id="userAlert" class="alert"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="Password">
-                            <small id="passAlert" class="alert"></small>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-dark" id="login">Login</button>
-                        <button type="submit" class="btn btn-primary btn-dark" id="register">Register</button>
-
-                    </form>
-                </div>
-            </div>
+<nav>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1> About Us</h1>
+            <p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
         </div>
-        <script src="style.css"></script>
-
+        <div clgit ass="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="password" class="form-control" id="username">
+                    <small id="userAlert" class="alert"></small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="Password">
+                    <small id="passAlert" class="alert"></small>
+                  </div>
+                <button type="submit" class="btn btn-primary" id="login">Login</button>
+                <a href="registration.html" id="register">Create an account with us</button>
+               </form>
+        </div>
+    </div>
+</div>
+<!-- javascript link -->
+<script src="assets/javascript/authentication.js"></script>
 </body>
 
 </html>
