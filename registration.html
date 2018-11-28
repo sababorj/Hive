@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- jQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <style>
+        #registration-table th,
+    td {
+      display: inline-block;
+      width: 16.575%;
+    }
+  </style>
+</head>
+
+<body>
+
+    <!-- Employee Tracker -->
+    <div class="container">
+
+        <!-- Jumbotron -->
+        <div class="jumbotron" style="color: black">
+            <h1 class="text-center">Register Now</h1>
+            <h3 class="text-center">Buzz Around Town.</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Register Now  -->
+                <div class="card mb-4">
+                    <div class="card-header">Registration</div>
+                    <div class="card-body">
+
+                        <!-- Entry Form -->
+                        <form>
+                            <div class="form-group">
+                                <label for="first-input">First Name</label>
+                                <input class="form-control" id="train-input" placeholder="First Name" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-input">Last Name</label>
+                                <input class="form-control" id="train-input" placeholder="Last Name" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="email-input">Email</label>
+                                <input class="form-control" id="email-input" placeholder="JohnDoe@gmail.com" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthday-input">Birth Date</label>
+                                <input class="form-control" id="birth-input" placeholder="01/01/1990" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="zip-input">Zip Code</label>
+                                <input class="form-control" id="zip-input" placeholder="92101" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="username-input">Username</label>
+                                <input class="form-control" id="username-input" placeholder="johndoe" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="password-input">Password</label>
+                                <input class="form-control" id="password-input" placeholder="minimum 5 characters" type="text">
+                            </div>
+                            <button class="btn btn-primary float-right" id="register-user">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- javascript link -->
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
