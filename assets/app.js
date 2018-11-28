@@ -2,6 +2,7 @@
 var userLocation = "92101";
 var userInterest = "restaurant";
 var userInterestParam = "italian";
+var professionalInterest = "sales";
 //url for proxy server which we need to make requests from the google places api
 var corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/";
 var apiKey = "AIzaSyD5YTMyDlZYKKMMrlYIguDdqT68DxBrLx4"
@@ -47,8 +48,20 @@ $.ajax({
                     console.log("photo query url: " + photoQueryUrl);
                     var image = $("<img>");
                     image.attr("src", photoQueryUrl);
-                    $("#image-options").append(image);
+                    // $("#places-recommendations").append(image);
                 };
 
             });
+    });
+
+    // starting with the meeetup api
+    // variable for meetup api key
+    var meetupKey = "371c3079557627617125571f7e6960";
+    // variable for the meetup query url
+    var meetupUrl = `https://api.meetup.com/find/events?zip=${userLocation}&radius=1&events=${professionalInterest}&key=${meetupKey}&sign=true`;
+    $.ajax({
+        url: corsAnywhereUrl + meetupUrl,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
     });
