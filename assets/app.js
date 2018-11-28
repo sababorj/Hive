@@ -14,12 +14,13 @@ $.ajax({
 })
     .then(function (response) {
         var geoResult = response.results;
+        console.log(geoResult)
         // storing the lattitude value for zipcode in a variable
         var userLat = geoResult[0].geometry.location.lat;
         // storing the longitude value for zipcode in a variable
         var userLng = geoResult[0].geometry.location.lng;
         // creating and storing the query url with user location(formatted: lat.,long) and interest parameters for use in google places api nearby search
-        var queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&type=${userInterest}&keyword=${userInterestParam}&opennow&key=${apiKey}`;
+        var queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&type=${userInterest}&keyword=${userInterestParam}&key=${apiKey}`;
         console.log("QueryUrl: " + queryUrl);
 
         // second api call. using the location variables we retrieved from the call above, we call a nearby search from google places api
@@ -44,6 +45,9 @@ $.ajax({
                     // creating the url we will use to retrieve images from google's place photo service
                     var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${photoRef}&key=${apiKey}`;
                     console.log("photo query url: " + photoQueryUrl);
+                    var image = $("<img>");
+                    image.attr("src", photoQueryUrl);
+                    $("#image-options").append(image);
                 };
 
             });
