@@ -30,18 +30,28 @@ $.ajax({
             .then(function (response) {
                 var nearbyResult = response.results;
                 // for loop to go through the JSON response and retrieve name, customer rating and address for each object in the results
-                for (i = 0; i < nearbyResult.length; i++) {
-                    var placeName = nearbyResult[i].name;
-                    var placeRating = nearbyResult[i].rating
-                    var placeAddress = nearbyResult[i].vicinity
+                for (i = 0; i < 3; i++) {
+                    var placeName = $("<p>").html(`<b> ${nearbyResult[i].name}</b>`);
+                    var placeRating = $("<p>").html(`<b>Rating</b> ${nearbyResult[i].rating} stars`);
+                    var placeAddress = $("<p>").html(`<b>Address: </b>${nearbyResult[i].vicinity}`);
                     // storing each place object's photo reference in a variable
                     var photoRef = nearbyResult[i].photos[0].photo_reference;
                     // creating the url we will use to retrieve images from google's place photo service
-                    var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${photoRef}&key=${apiKey}`;
-                    var image = $("<img>");
+                    var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${photoRef}&key=${apiKey}`;
+                    var image = $("<img>").attr("id", `place-image${[i]}`);
                     image.attr("src", photoQueryUrl);
-                    // the next line will append images to the html when we have the target id
-                    // $("#").append(image);
+                    // creating a new div that has the class of row
+                    var newDiv = $("<div>").attr("class", "row");
+                    // creating a new div with class of col-md-4 and appending our place image
+                    var imageDiv = $("<div>").attr("class", "col-md-4");
+                    imageDiv.append(image);
+                    // creating a text div with class of col-md-8 and appending all of our place text
+                    var textDiv = $("<div>").attr("class", "col-md-8")
+                    textDiv.append(placeName, placeRating, placeAddress);
+                    // appending the image and text divs to the newDiv
+                    newDiv.append(imageDiv, textDiv);
+                    // appending the newDiv to the html div with id of interest-one-div
+                    $("#interest-one-div").append(newDiv);
                 };
 
             });
@@ -57,8 +67,24 @@ $.ajax({
         url: corsAnywhereUrl + meetupUrl,
         method: "GET"
     }).then(function(response){
-        for (j = 0; j < response.events.length; j++) {
-        console.log(response.events[j].id); 
-        //Sheetal -> this is the path to the event id that we need for your rsvp code :)
+        for (j = 0; j < 3; j++) {
+            console.log(response.events[j]);
+            var eventName = $("<p>").html(`<b>${response.events[j].name}</b>`);
+            console.log(eventName);
+            var eventGroup = $("<p>").text(response.events[j].group.name);
+            console.log(eventGroup);
+            var eventDate = response.events[j].local_date;
+            console.log(eventDate);
+            var eventTime = response.events[j].local_time;
+            console.log(eventTime);
+            var eventDateTime = $("<p>").html(`<b>Event Date:</b> ${eventDate}, ${eventTime}`)
+            var eventUrl = response.events[j].link;
+            console.log(eventUrl);
+            var meetupDiv = $("<div>").attr("class", "row");
+            var meetupDetailsDiv = $("<div>").attr("class", "col-md-12");
+            meetupDetailsDiv.append(eventName, eventGroup, eventDateTime);
+            meetupDiv.append(meetupDetailsDiv);
+            $("#interest-two-div").append(meetupDiv);
+
         }
     });
