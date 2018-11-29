@@ -12,31 +12,18 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var auth = firebase.auth();
 
-// initial values globally
-var username;
-var password;
-var firstName;
-var lastName = "";
-var email;
-var birthDate = "";
-var zipcode;
-var userInfoObj = [];
-var move = true;
-
-var userInfo = {};
-
 
 // this function will gather valid user input
-function gatherBasicInfo() {
+
+$(document).on("click", "#register-user", function (event) {
+    event.preventDefault();
     $(".alert").empty();
-    move = true
-    if ($("#username-input").val().trim().length > 0) {
-        var username = $("#username-input").val().trim()
-    } else {
-        var username = false;
-        var Umsg = $("<p>").text("Please provide a username")
-        $("#userAlert").append(Umsg)
-    }
+    // verify the data
+    // var username = false;
+    //     var Umsg = $("<p>").text("Please provide a username")
+    //     $("#userAlert").append(Umsg)
+    // @TODO: if user name is in use dont do it
+    var username = $("#username-input").val().trim()
 
     if ($("#password-input").val().trim().length > 5) {
         password = $("#password-input").val().trim()
@@ -46,88 +33,60 @@ function gatherBasicInfo() {
         $("#passAlert").append(Pmsg)
     }
 
-    if ($("#first-input").val().trim().length > 0) {
-        firstName = $("#first-input").val().trim()
-    } else {
-        firstName = false;
-        var Fmsg = $("<p>").text("Please provide a name")
-        $("#firstnameAlert").append(Fmsg)
-    }
+    var firstName = $("#first-input").val().trim()
 
+    var lastName = ""
     $("#last-input").val().trim().length > 0 ? lastName = $("#last-input").val().trim() : false;
 
-    if ($("#email-input").val().trim().length > 0) {
-        email = $("#email-input").val().trim()
-        //  TODO: for future implementation: a check on the email to not be in our system (in our system should be a function to check if email is already in our system)
-        // use the error code that fire base returns
-        // if ("in our system") {
-        //     email = false;
-        //     var Emsg = $("<p>").text("an account is already associated with this email!")
-        //     $("#emailAlert").append(Emsg)
-        // }
-    } else {
-        email = false;
-        var Emsg = $("<p>").text("Please provide an Email")
-        $("#emailAlert").append(Emsg)
-    }
-
+    var birthDate = ""
     $("#birth-input").val().trim().length > 0 ? birthDate = $("#birth-input").val().trim() : false;
 
     if ($("#zip-input").val().trim().length == 5) {
-        zipcode = parseInt($("#zip-input").val().trim())
+        var zipcode = parseInt($("#zip-input").val().trim())
     } else {
-        zipcode = false;
+        var zipcode = false;
         var Zmsg = $("<p>").text("Please provide a valid zipcode")
         $("#zipcodeAlert").append(Zmsg)
     }
-    // if all the fields are filed correctly push the information to the info object
+
+    // if all the fields are filed correctly create the user object
+    var userInfoObj = {};
+    var data = false
     if (username && password && firstName && zipcode) {
-        userInfoObj.push({ "username": username });
-        userInfoObj.push({ "password": password });
-        userInfoObj.push({ "firstName": firstName });
-        userInfoObj.push({ "lastName": lastName });
-        userInfoObj.push({ "birthday": birthDate });
-        userInfoObj.push({ "zipcode": zipcode });
-        return userInfoObj
-    } else {
-        move = false;
-        return move
-        //empty the object 
+        var userInfoObj = {
+            "username": username,
+            "password": password,
+            "firstName": firstName,
+            "lastName": lastName,
+            "birthday": birthDate,
+            "zipcode": zipcode
+        }
+        data = true;
     }
-}
-$(document).on("click", "#register-user", function (event) {
-    event.preventDefault();
-    gatherBasicInfo();
-    console.log(move)
-    if (move) {
-        //create the user account in database
-        console.log(userInfoObj[0].username)
-        auth.createUserWithEmailAndPassword(userInfoObj[0].username, userInfoObj[1].password).then((user) => {
+
+    //create the user account in database
+    if(data){
+        console.log(userInfoObj.username, userInfoObj.password)
+        auth.createUserWithEmailAndPassword(userInfoObj.username, userInfoObj.password).then((user) => {
             if (user) {
                 //    console.log(userInfoObj[0].username, userInfoObj[1].password)
                 var loggedInUser = auth.currentUser;
                 database.ref("/userinfo").push({
-                    firstName: userInfoObj[2].firstName,
-                    lastName: userInfoObj[3].lastName,
-                    birthday: userInfoObj[4].birthday,
-                    zipcode: userInfoObj[5].zipcode,
+                    firstName: userInfoObj.firstName,
+                    lastName: userInfoObj.lastName,
+                    birthday: userInfoObj.birthday,
+                    zipcode: userInfoObj.zipcode,
                     userId: loggedInUser.uid
                 });
                 // move to the interest page
                 window.location.href = "interests.html";
-
             }
         }).catch(function (error) {
             console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
         })
-
-
-
-        console.log(userInfoObj)
-        
-
     }
 })
+
 $(document).on("click", "#create-account", function () {
     window.location.href = "profile.html"
 })
@@ -165,9 +124,8 @@ auth.onAuthStateChanged(firebaseUser => {
             .equalTo(firebaseUser.uid)
             .once("child_added", function (snapshot) {
                 console.log(snapshot.val());
-                userInfo = snapshot.val();
-            }  
-        );
+            }
+            );
     } else {
         console.log("user id loged off")
     }
