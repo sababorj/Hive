@@ -32,3 +32,12 @@ h1
     
     color: royalblue;
 }
+
+.col-lg-5
+{
+    margin-left: 20px;
+}
+.meetup
+{
+   width:200px; 
+}
