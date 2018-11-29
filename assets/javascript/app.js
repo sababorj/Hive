@@ -68,8 +68,16 @@ $.ajax({
         method: "GET"
     }).then(function(response){
         for (j = 0; j < response.events.length; j++) {
-            console.log(response);
-        console.log(response.events[j].id); 
-        //Sheetal -> this is the path to the event id that we need for your rsvp code :)
+            console.log(response.events[j]);
+            var eventName = response.events[j].name;
+            console.log(eventName);
+            var eventGroup = response.events[j].group.name;
+            console.log(eventGroup);
+            var eventDate = response.events[j].local_date;
+            console.log(eventDate);
+            var eventTime = response.events[j].local_time;
+            console.log(eventTime);
+            var eventUrl = response.events[j].link;
+            console.log(eventUrl);
         }
     });
