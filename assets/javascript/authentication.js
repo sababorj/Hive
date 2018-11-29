@@ -115,13 +115,7 @@ $(document).on("click", "#register-user", function (event) {
         })
 
         // gather information for ourself about the state of user
-        auth.onAuthStateChanged(firebaseUser => {
-            if(firebaseUser){
-                console.log("user is logged in")
-            } else {
-                console.log("user id loged off")
-            }
-        })
+       
         
         console.log(userInfoObj)
         // move to the interest page
