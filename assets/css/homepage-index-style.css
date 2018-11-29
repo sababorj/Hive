@@ -85,7 +85,7 @@ p {
     padding-bottom:30px;
 }
 
-#Pmsg, #Zmsg {
+#Pmsg, #Zmsg, #Emsg {
     color: red;
     font-size: 12px;
     font-weight: bold;

@@ -87,6 +87,11 @@ $(document).on("submit", "form", function (event) {
             }
         }).catch(function (error) {
             console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
+            if(error.code = "auth/email-already-in-use"){
+                username = false;
+                var Emsg = $("<p>").attr("id","Emsg").text("This email is already in use, please try again");
+                $("#username-input").after(Emsg)
+            }
         })
     }
 })
