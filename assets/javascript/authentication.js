@@ -20,12 +20,14 @@ var lastName = "";
 var email;
 var birthDate = "";
 var zipcode;
-var userInfoObj = []
+var userInfoObj = [];
+var move = true;
 
 
 // this function will gather valid user input
 function gatherBasicInfo() {
     $(".alert").empty();
+    move = true
     if ($("#username-input").val().trim().length > 0) {
         var username = $("#username-input").val().trim()
     } else {
@@ -54,7 +56,8 @@ function gatherBasicInfo() {
 
     if ($("#email-input").val().trim().length > 0) {
         email = $("#email-input").val().trim()
-        // for future implementation: a check on the email to not be in our system (in our system should be a function to check if email is already in our system)
+      //  TODO: for future implementation: a check on the email to not be in our system (in our system should be a function to check if email is already in our system)
+        // use the error code that fire base returns
         // if ("in our system") {
         //     email = false;
         //     var Emsg = $("<p>").text("an account is already associated with this email!")
@@ -84,18 +87,67 @@ function gatherBasicInfo() {
         userInfoObj.push({ "birthday": birthDate });
         userInfoObj.push({ "zipcode": zipcode });
         return userInfoObj
+    } else {
+        move = false;
+        return move
     }
 }
 $(document).on("click", "#register-user", function (event) {
     event.preventDefault();
     gatherBasicInfo();
-    // move on to the interest page
-    window.location.href = "interests.html"
+    console.log(move)
+    if (move) {
+        //create the user account in database
+        console.log(userInfoObj[0].username)
+        auth.createUserWithEmailAndPassword(userInfoObj[0].username, userInfoObj[1].password).then( (user) => {
+            if(user){
+                user.updateProfile({
+                    firstName : userInfoObj[2].firstName,
+                    lastName : userInfoObj[3].lastName,
+                    birthday : userInfoObj[4].birthday,
+                    zipcode : userInfoObj[5].zipcode
+                }).then((s) => {
+                    console.log("successfully added user information to their account")
+                })
+            }
+        }).catch(function(error){
+            console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
+        })
+
+        // gather information for ourself about the state of user
+        auth.onAuthStateChanged(firebaseUser => {
+            if(firebaseUser){
+                console.log("user is logged in")
+            } else {
+                console.log("user id loged off")
+            }
+        })
+        
+        console.log(userInfoObj)
+        // move to the interest page
+        // window.location.href = "interests.html"
+
+    }
 })
-// sign a user in 
-console.log(userInfoObj)
+$(document).on("click", "#create-account", function () {
+    window.location.href = "profile.html"
+})
 
-//  auth.createUserWithEmailAndPassword()
+$(document).on("click", "#logout-btn", function (event) {
+    event.preventDefault();
+    auth.signOut();
+})
 
-// sign out 
 
+$(document).on("click", "#login", function (event) {
+    event.preventDefault();
+    var userEmail = $("#username").val().trim();
+    var userPass = $("#Password").val().trim();
+    auth.signInWithEmailAndPassword(userEmail,userPass).then((user) => {
+        if(user){
+            console.log("user is login")
+        }
+    }).catch((error) => {
+        console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
+    })
+})
