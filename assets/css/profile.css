@@ -6,7 +6,9 @@
 #settings-btn {
     float: left;
 }
-
+#logout-btn{
+    float: left;
+}
 #nav-logo {
     height: 90px;
 }
@@ -16,6 +18,17 @@
     float: left;
     margin-right: 120px;
     margin-left: 60px;
+}
+.container {
+    margin-top: 20px;
+}
+#profile-pic {
+    max-width: 100%;
+    border-radius: 1rem;
+}
+#place-image0, #place-image1, #place-image2 {
+    max-width: 100%;
+    border-radius: 0.5rem;
 }
 
 #about-me-card {

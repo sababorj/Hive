@@ -5,11 +5,27 @@ h1 {
     color:white;
 }
 
+.h1-register{
+    color:black;
+    text-align: center;
+
+}
+
+.h3-register{
+    color: black;
+    font-family: 'Muli', sans-serif;
+    text-align: center;
+
+}
+
 body {
     background-color: #343a40;
     font-family: 'Muli', sans-serif;
+}
 
-
+.orange {
+    background-color: orange;
+    color: white;
 }
 
 #group-1{
@@ -21,23 +37,34 @@ p {
     font-size: 18px;
     color:white;
     font-family: 'Muli', sans-serif;
-
 }
 
 .bgimage {
     width:100%;
-    height:300px;
+    height:400px;
     background: url('https://images.unsplash.com/photo-1542053755768-55960a1b88ad?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c038432f143f5a54eb09022cd6dfbdd&auto=format&fit=crop&w=1500&q=80');
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
     background-attachment: fixed;
   }
-  .bgimage h5 {
+
+
+.bgimage h5 {
     color:white;
     text-shadow:2px 2px #333;
   }
   
+
 #white {
     color:white;
+    a, a:hover, a:active;
+    a:visited { color: white; }
+
+}
+
+
+.pad-top{
+    padding-top:30px;
+    padding-bottom:30px;
 }
