@@ -7,6 +7,33 @@
     float: left;
 }
 
-#city-btn {
-    color: white;
+#nav-logo {
+    height: 90px;
+}
+
+#img-card {
+    padding: 125px;
+    float: left;
+    margin-right: 120px;
+    margin-left: 60px;
+}
+
+#about-me-card {
+    float: right;
+    padding: 90px;
+    text-align: center;
+}
+
+#name-location {
+    padding: auto;
+
+}
+
+#recommended-tab {
+margin: 50px;
+}
+
+#restaurants {
+    text-align: center;
+    font-weight: bolder;
 }
