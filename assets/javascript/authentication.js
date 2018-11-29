@@ -23,6 +23,8 @@ var zipcode;
 var userInfoObj = [];
 var move = true;
 
+var userInfo = {};
+
 
 // this function will gather valid user input
 function gatherBasicInfo() {
@@ -163,6 +165,7 @@ auth.onAuthStateChanged(firebaseUser => {
             .equalTo(firebaseUser.uid)
             .once("child_added", function (snapshot) {
                 console.log(snapshot.val());
+                userInfo = snapshot.val();
             }  
         );
     } else {
