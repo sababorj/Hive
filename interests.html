@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <!-- Our own CSS stylesheet -->
-        <link rel="stylesheet" href="assets/css/interests.css">
+    <link rel="stylesheet" href="assets/css/interests.css">
     <!-- jQuery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Firebase Refrence -->
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 </head>
@@ -20,59 +20,78 @@
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">What are your Interests?</h1>
-       </div>
-      </div>
-      <div class="table-responsive-lg">
+            <h1 class="display-4">What are your Interests?</h1>
+        </div>
+    </div>
+    <div class="table-responsive-lg">
         <div class="row" id="giphy-list1">
             <div class="col-sm-2">
-                <img class="art_gallery" src="assets/images/art.jpg"/>
+                <img class="art_gallery" src="assets/images/art.jpg" />
                 <p>ART-GALLERY</p>
             </div>
             <div class="col-sm-2">
-                <img class="restaurant" src="assets/images/restaurant.jpg"/>
-                <p>Restaurant</p>              
+                <img class="restaurant" src="assets/images/restaurant.jpg" />
+                <p>Restaurant</p>
             </div>
             <div class="col-sm-2">
-                <img class="cafe" src="assets/images/cafe.jpg"/>
+                <img class="cafe" src="assets/images/cafe.jpg" />
                 <p>Cafe</p>
             </div>
             <div class="col-sm-2">
-                <img class="gym" src="assets/images/gym.jpg"/>
+                <img class="gym" src="assets/images/gym.jpg" />
                 <p>Gym</p>
             </div>
             <div class="col-sm-2">
-                <img class="movie_theater" src="assets/images/movies.jpg"/>
+                <img class="movie_theater" src="assets/images/movies.jpg" />
                 <p>MovieTheater</p>
             </div>
         </div>
         <div class="row" id="giphy-list2">
             <div class="col-sm-2">
-                <img class="museum" src="assets/images/museums.jpg"/>
+                <img class="museum" src="assets/images/museums.jpg" />
                 <p>Museums</p>
             </div>
             <div class="col-sm-2">
-                <img class="night_club" src="assets/images/nightlife.jpg"/>
-                <p>Nightlife</p>              
+                <img class="night_club" src="assets/images/nightlife.jpg" />
+                <p>Nightlife</p>
             </div>
             <div class="col-sm-2">
-                <img class="park" src="assets/images/outdoors.jpg"/>
+                <img class="park" src="assets/images/outdoors.jpg" />
                 <p>Outdoors</p>
             </div>
             <div class="col-sm-2">
-                <img class="spa" src="assets/images/spa.jpg"/>
+                <img class="spa" src="assets/images/spa.jpg" />
                 <p>Spa</p>
             </div>
             <div class="col-sm-2">
-                <img class="zoo" src="assets/images/wildlife.jpg"/>
+                <img class="zoo" src="assets/images/wildlife.jpg" />
                 <p>Zoo</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <img class="technology" src="http://www.justscience.in/wp-content/uploads/2018/01/what-are-the-implications-of-ever-increasing-globalization-through-technology-to-the-global-economy.jpg" />
+                    <p class="meetup">Technology Meetup's</p>
+                </div>
+                <div class="col-lg-5">
+                    <img class="startup" src="assets/images/startup.jpg" />
+                    <p class="meetup"> Startup Meetup's</p>
+                </div>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <button><a href="javascript:history.back()">Go Back</a></button>
+            </div>
+            <div class="col-sm-5">
+                <button id="create-account">Create an account</button>
             </div>
         </div>
     </div>
     <!-- Bootstrap CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- javascript link -->
     <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/authentication.js"></script>
 </body>
 
 </html>

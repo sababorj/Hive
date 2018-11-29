@@ -1,31 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/profile.css">
 </head>
+
 <body>
-        <nav class="navbar navbar-dark bg-dark">
-                <i class="fas fa-city" id="city-btn"></i>
-                <form class="form-inline">
-                  <button class="btn btn-outline-secondary" id="profile-btn" type="button">My Profile</button>
-                  <button class="btn btn-outline-secondary" id="settings-btn" type="button">Settings</button>
-                </form>
-              </nav>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"> <img id="nav-logo" src="assets/images/mylogo.png" title="mylogo.png"></a>
+        <form class="form-inline">
+            <button class="btn btn-outline-secondary" id="profile-btn" type="button">My Profile</button>
+            <button class="btn btn-outline-secondary" id="settings-btn" type="button">Settings</button>
+            <button class="btn btn-outline-secondary" id="logout-btn" type="button">LogOut</button>
+        </form>
+    </nav>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img id="profile-pic" src="assets/images/stock-profile.jpg" alt="user profile image">
+            </div>
+            <div class="col-md-9">
+                <h1>About Me</h1>
+                <p>Text goes here</p>
+            </div>
+        </div>
+    </div>
 
+        <div class="card" id="recommended-tab" style="width: 14rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Recommended for You:</strong></li>
+            </ul>
+        </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" id="interest-one-div">
+                    <h4>Restaurants</h4>
+                </div>
+                <div class="col-md-4" id="interest-two-div">
+                    <h4>MeetUps</h4>
+                </div>
+                <div class="col-md-4" id="interest-three-div">
+                    <h4>Nightlife</h4>
+                </div>
+            </div>
+        </div>
 
-
-
-
-              
-    <script src="assets/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>       
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>
