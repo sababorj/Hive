@@ -58,7 +58,7 @@ $.ajax({
         method: "GET"
     }).then(function(response){
         for (j = 0; j < response.events.length; j++) {
-        console.log(response.events[j].id); 
+        // console.log(response.events[j].id); 
         //Sheetal -> this is the path to the event id that we need for your rsvp code :)
         }
     });
