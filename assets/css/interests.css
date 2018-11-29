@@ -39,9 +39,15 @@ button{
 }
 .col-lg-5
 {
-    margin-left: 20px;
+    margin-left: 17px;
 }
 .meetup
 {
    width:200px; 
+}
+
+.imageselected
+{
+    border:10px solid blue;
+
 }
