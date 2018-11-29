@@ -39,6 +39,24 @@
 </head>
 
 <body>
+        <nav class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="#"> <img id="nav-logo" src="assets/images/mylogo.png" title="mylogo.png"></a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-btn" href="#">My Profile</a>
+                    </li>
+                    <br>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                            aria-expanded="false">Account</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" id="logout-btn" href="#">Log Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <br>
 
     <!-- Employee Tracker -->
     <div class="container">
@@ -63,29 +81,21 @@
                                     <label for="username-input">Username</label>
                                     <input class="form-control" id="username-input" placeholder="Username" type="email"
                                         required>
-                                    <small id="userAlert" class="alert"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="pass-input">Password (minimum 6 characters)</label>
                                     <input class="form-control" type="password" id="password-input" placeholder="At least 6 characters"
-                                        type="text" required>
-                                    <small id="passAlert" class="alert"></small>
-                                </div>
+                                        type="text" required>                                </div>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="first-input">First Name</label>
                                     <input class="form-control" id="first-input" placeholder="First Name" type="text"
                                         required>
-                                    <small id="userAlert" class="alert"></small>
-
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="last-input">Last Name</label>
                                     <input class="form-control" id="last-input" placeholder="Last Name" type="text">
-                                    <small id="userAlert" class="alert"></small>
-
                                 </div>
                             </div>
                             <div class="form-row">
@@ -93,15 +103,11 @@
                                     <label for="birthday-input">Birth Date</label>
                                     <input class="form-control" id="birth-input" placeholder="01/01/1990" type="date"
                                         min="00/00/0000">
-                                    <small id="userAlert" class="alert"></small>
-
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="zip-input">Zip Code</label>
                                     <input class="form-control" id="zip-input" placeholder="92101" type="number"
                                         data-bind="value:replyNumber" required>
-                                    <small id="userAlert" class="alert"></small>
-
                                 </div>
                             </div>
                             <button class="btn btn-primary float-right" id="register-user">Submit</button>

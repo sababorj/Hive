@@ -1,3 +1,28 @@
+#nav-logo {
+    height: 90px;
+}
+
+.nav-link {
+        background-color: transparent; 
+        color: white; 
+}
+
+
+#profile-btn:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+.dropdown-item {
+    background-color: lightyellow;
+}
 h1 {
     font-family: 'Neuton', serif;
     text-align: center;
@@ -19,13 +44,8 @@ h1 {
 }
 
 body {
-    background-color: #343a40;
+    background-image: url("https://cms.orientaltrading.com/sites/default/files/projects/hero-lite/desktop/2x/Untitled%20design%20(3)_1.png");
     font-family: 'Muli', sans-serif;
-}
-
-.orange {
-    background-color: orange;
-    color: white;
 }
 
 #group-1{
@@ -58,13 +78,16 @@ p {
 
 #white {
     color:white;
-    a, a:hover, a:active;
-    a:visited { color: white; }
-
 }
-
 
 .pad-top{
     padding-top:30px;
     padding-bottom:30px;
+}
+
+#Pmsg, #Zmsg {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px
 }
