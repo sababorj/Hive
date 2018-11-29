@@ -7,15 +7,20 @@
     <meta charset="UTF-8">
     <title>Register</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Bootstrap & CSS -->
+    <link rel='stylesheet' href="assets/css/reset.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href="assets/css/homepage-index-style.css">
+
     <!-- jQuery cdn -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
+
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+
     <!-- Moment.js Reference -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
@@ -40,8 +45,8 @@
 
         <!-- Jumbotron -->
         <div class="jumbotron" style="color: black">
-            <h1 class="text-center">Register Now</h1>
-            <h3 class="text-center">Buzz Around Town.</h3>
+            <h1 class="h1-register">Register Now</h1>
+            <h3 class="h3-register">And Start Buzzin'.</h3>
         </div>
 
         <div class="row">
@@ -53,42 +58,40 @@
 
                         <!-- Entry Form -->
                         <form>
-                            <div class="form-group">
-                                <label for="first-input">Username</label>
-                                <input class="form-control" id="username-input" placeholder="Username" type="text">
-                                <small id="userAlert" class="alert"></small>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="first-input">Username</label>
+                                    <input class="form-control" id="username-input" placeholder="Username" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="first-input">Password (minimum 6 characters)</label>
+                                    <input class="form-control" type="password" id="password-input" placeholder="At least 6 characters"
+                                        type="text">
+                                </div>
+                            </div>
+                            <div class="form-row">
 
+                                <div class="form-group col-md-6">
+                                    <label for="first-input">First Name</label>
+                                    <input class="form-control" id="train-input" placeholder="First Name" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="last-input">Last Name</label>
+                                    <input class="form-control" id="train-input" placeholder="Last Name" type="text">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="first-input">Password (minimum 6 characters)</label>
-                                <input class="form-control"  type="password" id="password-input" placeholder="At least 6 characters" type="text">
-                                <small id="passAlert" class="alert"></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="first-input">First Name</label>
-                                <input class="form-control" id="first-input" placeholder="First Name" type="text">
-                                <small id="firstnameAlert" class="alert"></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="last-input">Last Name</label>
-                                <input class="form-control" id="last-input" placeholder="Last Name" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="email-input">Email</label>
-                                <input class="form-control" id="email-input" placeholder="JohnDoe@gmail.com" type="text">
-                                <small id="emailAlert" class="alert"></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="birthday-input">Birth Date</label>
-                                <input class="form-control" id="birth-input" placeholder="01/01/1990" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="zip-input">Zip Code</label>
-                                <input class="form-control" id="zip-input" placeholder="92101" type="text">
-                                <small id="zipcodeAlert" class="alert"></small>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="birthday-input">Birth Date</label>
+                                    <input class="form-control" id="birth-input" placeholder="01/01/1990" type="date" min="00/00/0000">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="zip-input">Zip Code</label>
+                                    <input class="form-control" id="zip-input" placeholder="92101" type="number" data-bind="value:replyNumber">
+                                </div>
                             </div>
 
-                            <button class="btn btn-primary float-right" id="register-user">Submit</button>
+                            <button class="btn btn-light float-right orange" id="register-user" >Get Started</button>
                         </form>
 
                     </div>
