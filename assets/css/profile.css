@@ -6,7 +6,9 @@
 #settings-btn {
     float: left;
 }
-
+#logout-btn{
+    float: left;
+}
 #nav-logo {
     height: 90px;
 }
