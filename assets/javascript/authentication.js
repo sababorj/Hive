@@ -56,7 +56,7 @@ function gatherBasicInfo() {
 
     if ($("#email-input").val().trim().length > 0) {
         email = $("#email-input").val().trim()
-      //  TODO: for future implementation: a check on the email to not be in our system (in our system should be a function to check if email is already in our system)
+        //  TODO: for future implementation: a check on the email to not be in our system (in our system should be a function to check if email is already in our system)
         // use the error code that fire base returns
         // if ("in our system") {
         //     email = false;
@@ -90,6 +90,7 @@ function gatherBasicInfo() {
     } else {
         move = false;
         return move
+        //empty the object 
     }
 }
 $(document).on("click", "#register-user", function (event) {
@@ -99,27 +100,29 @@ $(document).on("click", "#register-user", function (event) {
     if (move) {
         //create the user account in database
         console.log(userInfoObj[0].username)
-        auth.createUserWithEmailAndPassword(userInfoObj[0].username, userInfoObj[1].password).then( (user) => {
-            if(user){
-                user.updateProfile({
-                    firstName : userInfoObj[2].firstName,
-                    lastName : userInfoObj[3].lastName,
-                    birthday : userInfoObj[4].birthday,
-                    zipcode : userInfoObj[5].zipcode
-                }).then((s) => {
-                    console.log("successfully added user information to their account")
-                })
+        auth.createUserWithEmailAndPassword(userInfoObj[0].username, userInfoObj[1].password).then((user) => {
+            if (user) {
+                //    console.log(userInfoObj[0].username, userInfoObj[1].password)
+                var loggedInUser = auth.currentUser;
+                database.ref("/userinfo").push({
+                    firstName: userInfoObj[2].firstName,
+                    lastName: userInfoObj[3].lastName,
+                    birthday: userInfoObj[4].birthday,
+                    zipcode: userInfoObj[5].zipcode,
+                    userId: loggedInUser.uid
+                });
+                // move to the interest page
+                window.location.href = "interests.html";
+
             }
-        }).catch(function(error){
+        }).catch(function (error) {
             console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
         })
 
-        // gather information for ourself about the state of user
-       
-        
+
+
         console.log(userInfoObj)
-        // move to the interest page
-        // window.location.href = "interests.html"
+        
 
     }
 })
@@ -137,11 +140,32 @@ $(document).on("click", "#login", function (event) {
     event.preventDefault();
     var userEmail = $("#username").val().trim();
     var userPass = $("#Password").val().trim();
-    auth.signInWithEmailAndPassword(userEmail,userPass).then((user) => {
-        if(user){
+    console.log(userEmail, userPass)
+    auth.signInWithEmailAndPassword(userEmail, userPass).then((user) => {
+        if (user) {
             console.log("user is login")
+
+            window.location.href = "profile.html";
         }
     }).catch((error) => {
         console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
     })
+})
+
+// gather information for ourself about the state of user
+auth.onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        console.log(firebaseUser);
+        console.log("user is logged in");
+
+        database.ref("/userinfo")
+            .orderByChild("userId")
+            .equalTo(firebaseUser.uid)
+            .once("child_added", function (snapshot) {
+                console.log(snapshot.val());
+            }  
+        );
+    } else {
+        console.log("user id loged off")
+    }
 })
