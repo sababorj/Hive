@@ -2,7 +2,7 @@
 var userLocation = "92101";
 var userInterest = "restaurant";
 var userInterestParam = "italian";
-var professionalInterest = "sales";
+var professionalInterest = "startup";
 //url for proxy server which we need to make requests from the google places api
 var corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/";
 var apiKey = "AIzaSyD5YTMyDlZYKKMMrlYIguDdqT68DxBrLx4"
@@ -15,14 +15,12 @@ $.ajax({
 })
     .then(function (response) {
         var geoResult = response.results;
-        console.log(geoResult)
         // storing the lattitude value for zipcode in a variable
         var userLat = geoResult[0].geometry.location.lat;
         // storing the longitude value for zipcode in a variable
         var userLng = geoResult[0].geometry.location.lng;
         // creating and storing the query url with user location(formatted: lat.,long) and interest parameters for use in google places api nearby search
         var queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&type=${userInterest}&keyword=${userInterestParam}&key=${apiKey}`;
-        console.log("QueryUrl: " + queryUrl);
 
         // second api call. using the location variables we retrieved from the call above, we call a nearby search from google places api
         $.ajax({
@@ -31,24 +29,19 @@ $.ajax({
         })
             .then(function (response) {
                 var nearbyResult = response.results;
-                console.log(nearbyResult);
                 // for loop to go through the JSON response and retrieve name, customer rating and address for each object in the results
                 for (i = 0; i < nearbyResult.length; i++) {
                     var placeName = nearbyResult[i].name;
-                    console.log("Name: " + placeName);
                     var placeRating = nearbyResult[i].rating
-                    console.log("Rating: " + placeRating);
                     var placeAddress = nearbyResult[i].vicinity
-                    console.log("Address: " + placeAddress);
                     // storing each place object's photo reference in a variable
                     var photoRef = nearbyResult[i].photos[0].photo_reference;
-                    console.log(photoRef);
                     // creating the url we will use to retrieve images from google's place photo service
                     var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=${photoRef}&key=${apiKey}`;
-                    console.log("photo query url: " + photoQueryUrl);
                     var image = $("<img>");
                     image.attr("src", photoQueryUrl);
-                    // $("#places-recommendations").append(image);
+                    // the next line will append images to the html when we have the target id
+                    // $("#").append(image);
                 };
 
             });
@@ -57,11 +50,15 @@ $.ajax({
     // starting with the meeetup api
     // variable for meetup api key
     var meetupKey = "371c3079557627617125571f7e6960";
-    // variable for the meetup query url
-    var meetupUrl = `https://api.meetup.com/find/events?zip=${userLocation}&radius=1&events=${professionalInterest}&key=${meetupKey}&sign=true`;
+    // variable for the meetup query url. Note: &page=[number] is the number of results we are limiting our response to. &radius is in miles
+    var meetupUrl = `https://api.meetup.com/find/upcoming_events?photo-host=public&page=7&text=${professionalInterest}&zip=${userLocation}&radius=20&fields=events&key=${meetupKey}&sign=true`;
+    console.log("Meetup Url: " + meetupUrl)
     $.ajax({
         url: corsAnywhereUrl + meetupUrl,
         method: "GET"
     }).then(function(response){
-        console.log(response);
+        for (j = 0; j < response.events.length; j++) {
+        console.log(response.events[j].id); 
+        //Sheetal -> this is the path to the event id that we need for your rsvp code :)
+        }
     });
