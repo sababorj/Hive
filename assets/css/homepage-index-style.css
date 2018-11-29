@@ -58,13 +58,16 @@ p {
 
 #white {
     color:white;
-    a, a:hover, a:active;
-    a:visited { color: white; }
-
 }
-
 
 .pad-top{
     padding-top:30px;
     padding-bottom:30px;
+}
+
+#Pmsg, #Zmsg {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px
 }

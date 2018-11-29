@@ -15,9 +15,11 @@ var auth = firebase.auth();
 
 // this function will gather valid user input
 
-$(document).on("click", "#register-user", function (event) {
+$(document).on("submit", "form", function (event) {
     event.preventDefault();
-    $(".alert").empty();
+    $("#Pmsg").remove();
+    $("#Zmsg").remove();
+
     // verify the data
     // var username = false;
     //     var Umsg = $("<p>").text("Please provide a username")
@@ -29,8 +31,9 @@ $(document).on("click", "#register-user", function (event) {
         password = $("#password-input").val().trim()
     } else {
         password = false;
-        var Pmsg = $("<p>").text("Please provide 6 digit")
-        $("#passAlert").append(Pmsg)
+        Pmsg = $('<p>').attr("id","Pmsg").text("Please provide at least 6 charecter")
+        $("#password-input").empty()
+        $("#password-input").after(Pmsg)
     }
 
     var firstName = $("#first-input").val().trim()
@@ -45,8 +48,9 @@ $(document).on("click", "#register-user", function (event) {
         var zipcode = parseInt($("#zip-input").val().trim())
     } else {
         var zipcode = false;
-        var Zmsg = $("<p>").text("Please provide a valid zipcode")
-        $("#zipcodeAlert").append(Zmsg)
+        Zmsg = $('<p>').attr("id","Zmsg").text("Please provide valid zipcode")
+        $("#zip-input").empty()
+        $("#zip-input").after(Zmsg)
     }
 
     // if all the fields are filed correctly create the user object
