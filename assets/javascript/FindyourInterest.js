@@ -1,4 +1,4 @@
-// page gathers ineterst for user who is login
+// page gathers interest for current user
 auth.onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log("user is logged in");
@@ -11,7 +11,7 @@ auth.onAuthStateChanged(firebaseUser => {
                 console.log(snapshot.val());
                 userInfo = snapshot.val();
 
-                // this logic will limit user to only chose 3 ineterst 
+                // this logic will limit user to only chose 3 total interests 
                 var socialLimit = 2;
                 $(".social").on("click", function () {
                     if ($(this).hasClass("imageselected")) {
@@ -63,9 +63,9 @@ auth.onAuthStateChanged(firebaseUser => {
                         var pet = snapshot.val().pet;
                         var userId = snapshot.val().userId;
                         var zipcode = snapshot.val().zipcode;
-                        var interst1 = userInterests[0];
-                        var interst2 = userInterests[1];
-                        var interst3 = userInterests[2];
+                        var interest1 = userInterests[0];
+                        var interest2 = userInterests[1];
+                        var interest3 = userInterests[2];
 
                         // now creating the new user object 
                         var userCompelete = {
@@ -75,9 +75,9 @@ auth.onAuthStateChanged(firebaseUser => {
                             "pet": pet,
                             "userId": userId,
                             "zipcode": zipcode,
-                            "interst1": interst1,
-                            "interst2": interst2,
-                            "interst3": interst3
+                            "interest1": interest1,
+                            "interest2": interest2,
+                            "interest3": interest3
                         }
                         var userKey = snapshot.key
 
