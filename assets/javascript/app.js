@@ -9,6 +9,37 @@ auth.onAuthStateChanged(firebaseUser => {
             .once("child_added", function (snapshot) {
                 console.log(snapshot.val());
                 userInfo = snapshot.val();
+
+                // Change the HTML to reflect
+                $("#name-tag").text(snapshot.val().firstName);
+                $("#birthday-slot").text(snapshot.val().birthday);
+                $("#zipcode-slot").text(snapshot.val().zipcode);
+
+
+                var userPet = snapshot.val().pet;
+                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userPet + "&api_key=yFAPwe4TWmpuqbYlD7mElRe2RO3abedf&g&limit=1";
+                console.log(userPet);
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    // Creating and storing an image tag
+                    console.log(response);
+                    var userGif = $("<img>");
+                    var imageUrl = response.data[0].images.original.url;
+                    console.log(imageUrl);
+                    console.log(userGif);
+                    userGif.attr("src", imageUrl);
+                    userGif.attr("alt", "User Avatar");
+
+                    // Prepending the catImage to the images div
+                    $("#profile-userpic").append(userGif);
+                });
+
+
+
+
                 // variables to store google places search parameters (hard-coded now for testing but will get from user input when page is ready)
                 var userLocation = snapshot.val().zipcode;
                 var socialInterestOne = snapshot.val().interest1.type;
