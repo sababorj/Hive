@@ -14,6 +14,10 @@
     font-weight: bold;
 }
 
+#profile-btn {
+    border: 2px solid white;
+}
+
 .nav-link:hover {
     background-color: lightyellow;
     color: black;
@@ -37,4 +41,8 @@
 #textbox {
     align-self: center;
     padding: 200px;
+}
+
+body {
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/925922571447345889/8ACC006CE780C3E3E46C48C5D3E188883859A7D7/");
 }
