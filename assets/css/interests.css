@@ -22,10 +22,18 @@ p
     margin-bottom: 20px;
 }
 
-h1
+h1,h5
 {
     
     color: royalblue;
+}
+h5
+{
+    margin-left:2%;
+}
+h6
+{
+    color:grey;
 }
 button{
     width: 100%
@@ -39,4 +47,26 @@ button{
 {
     border:10px solid blue;
 
+}
+
+
+.close
+{
+    float:right;
+    width:14%;
+}
+
+.btnclose
+{
+    margin-bottom:1%;
+    width:25%;
+    align-content: center;
+}
+
+i
+{
+    color:royalblue;
+    size:1px;
+    margin-left: 1%;
+    margin-top:1%;
 }
