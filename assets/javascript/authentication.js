@@ -99,6 +99,7 @@ $(document).on("submit", "form", function (event) {
 $(document).on("click", "#logout-btn", function (event) {
     event.preventDefault();
     auth.signOut();
+    window.location.href = "logout.html";
 })
 
 
