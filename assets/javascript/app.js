@@ -11,7 +11,8 @@ auth.onAuthStateChanged(firebaseUser => {
                 userInfo = snapshot.val();
                 // variables to store google places search parameters (hard-coded now for testing but will get from user input when page is ready)
                 var userLocation = snapshot.val().zipcode;
-                var userInterest = "restaurant";
+                var socialInterest = snapshot.val().interest1.type;
+                console.log(socialInterest);
                 var userInterestParam = "italian";
                 var professionalInterest = "startup";
                 //url for proxy server which we need to make requests from the google places api
@@ -31,7 +32,7 @@ auth.onAuthStateChanged(firebaseUser => {
                         // storing the longitude value for zipcode in a variable
                         var userLng = geoResult[0].geometry.location.lng;
                         // creating and storing the query url with user location(formatted: lat.,long) and interest parameters for use in google places api nearby search
-                        var queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&type=${userInterest}&keyword=${userInterestParam}&key=${apiKey}`;
+                        var queryUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&typesocial}&keyword=${userInterestParam}&key=${apiKey}`;
 
                         // second api call. using the location variables we retrieved from the call above, we call a nearby search from google places api
                         $.ajax({
