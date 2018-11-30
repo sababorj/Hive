@@ -26,7 +26,7 @@
     <div class="table-responsive-lg">
         <div class="row" id="giphy-list1">
             <div class="col-sm-2">
-                <img id="art_gallery"  img-data="places" class="image" src="assets/images/art.jpg" data-state="notselected"/>
+                <img id="art_gallery" img-data="places" class="image" src="assets/images/art.jpg" data-state="notselected" />
                 <p>ART-GALLERY</p>
             </div>
             <div class="col-sm-2">
@@ -75,7 +75,7 @@
                 <div class="col-lg-5">
                     <img id="startup" class="image" src="assets/images/startup.jpg" />
                     <p class="meetup"> Startup Meetup's</p>
-                </div>                
+                </div>
             </div>
         </div>
         <div class="row">
@@ -87,11 +87,31 @@
             </div>
         </div>
     </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="myModalLabel" id="exampleModalCenterTitle">Info Alert</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                            <h6>You have reached your limit of selecting interests</h6>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btnclose btn-primary" data-dismiss="modal">Close</button>                    
+                    </div>
+                  </div>
+                </div>
+              </div> 
+    
     <!-- Bootstrap CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- javascript link -->
-    <script src="assets/javascript/authentication.js"></script>
+    <!--script src="assets/javascript/authentication.js"></script-->
     <script src="assets/javascript/FindyourInterest.js"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>

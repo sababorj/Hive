@@ -16,7 +16,8 @@ $(".image").on("click",function()
     } 
     else
     {
-        alert("You have reached your limit of Interests");
+        
+        $('#myModal').modal('show');
     }
 });
 $("#create-account").on("click", function(){
@@ -26,14 +27,14 @@ $("#create-account").on("click", function(){
         interests: userInterests
     }
 $.each($('.imageselected'), function(i) {
-    var interestName = $(this).attr("id")
-    var interestCategory = $(this).attr("img-data")
+    var interestName = $(this).attr("id");
+    var interestCategory = $(this).attr("img-data");
     var interestDataObject = {
         type: interestName, 
         category: interestCategory
-    }
+    };
     userInterests.push(interestDataObject);   
-})
+});
 console.log(userInterestObject);
 database.ref("/userinfo").push(userInterestObject);
     });         

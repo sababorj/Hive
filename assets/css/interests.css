@@ -26,10 +26,13 @@ p
   vertical-align: middle;
 }
 
-h1
+h1,h5
 {
     
     color: royalblue;
+}
+h6{
+    color:black;
 }
 button{
     margin-left: 40px;
@@ -50,4 +53,23 @@ button{
 {
     border:10px solid blue;
 
+}
+
+
+#myModalLabel
+{
+    align-content: center;
+    color: royalblue;
+    margin-left:21%;
+}
+
+.close
+{
+    float:right;
+    width:14%;
+}
+
+.btnclose
+{
+    margin-bottom:1%;
 }
