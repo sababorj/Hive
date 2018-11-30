@@ -11,6 +11,9 @@
         crossorigin="anonymous">
     <!-- Our own CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/interests.css">
+    <!-- FontAwesome stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Firebase Refrence -->
@@ -124,25 +127,27 @@
             </div>
         </div>
     </div>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="myModalLabel" id="exampleModalCenterTitle">Info Alert</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h5 class="myModalLabel" id="exampleModalCenterTitle">Info Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                            <h6>You have reached your limit of selecting interests</h6>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btnclose btn-primary" data-dismiss="modal">Close</button>                    
-                    </div>
-                  </div>
+                    </button>
                 </div>
-              </div> 
-    
+                <div class="modal-body">
+                    <h6>You have reached your limit of selecting interests</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btnclose btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- javascript link -->

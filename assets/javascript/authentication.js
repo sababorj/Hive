@@ -16,10 +16,8 @@ var auth = firebase.auth();
 
 $(document).on("submit", "form", function (event) {
     event.preventDefault();
-    $("#Pmsg").remove();
-    $("#Zmsg").remove();
-    $("#Emsg").remove();
-    
+    $(".ErrorMsg").remove();
+
     var favAnnimal;
     $("#annimal").val() == "Select your faveriot animal!" ? favAnnimal = "pet" : favAnnimal = $("#annimal").val();
 
@@ -29,8 +27,7 @@ $(document).on("submit", "form", function (event) {
         password = $("#password-input").val().trim()
     } else {
         password = false;
-        Pmsg = $('<p>').attr("id","Pmsg").text("Please provide at least 6 charecter")
-        $("#password-input").empty()
+        Pmsg = $('<p>').attr("class", "ErrorMsg").text("Please provide at least 6 charecter")
         $("#password-input").after(Pmsg)
     }
 
@@ -46,8 +43,7 @@ $(document).on("submit", "form", function (event) {
         var zipcode = parseInt($("#zip-input").val().trim())
     } else {
         var zipcode = false;
-        Zmsg = $('<p>').attr("id","Zmsg").text("Please provide valid zipcode")
-        $("#zip-input").empty()
+        Zmsg = $('<p>').attr("class", "ErrorMsg").text("Please provide valid zipcode")
         $("#zip-input").after(Zmsg)
     }
 
@@ -62,13 +58,13 @@ $(document).on("submit", "form", function (event) {
             "lastName": lastName,
             "birthday": birthDate,
             "zipcode": zipcode,
-            "pet" : favAnnimal
+            "pet": favAnnimal
         }
         data = true;
     }
 
     //create the user account in database
-    if(data){
+    if (data) {
         console.log(userInfoObj.username, userInfoObj.password)
         auth.createUserWithEmailAndPassword(userInfoObj.username, userInfoObj.password).then((user) => {
             if (user) {
@@ -87,9 +83,9 @@ $(document).on("submit", "form", function (event) {
             }
         }).catch(function (error) {
             console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
-            if(error.code = "auth/email-already-in-use"){
+            if (error.code = "auth/email-already-in-use") {
                 username = false;
-                var Emsg = $("<p>").attr("id","Emsg").text("please provide a valid email address. This username maybe already taken");
+                var Emsg = $("<p>").attr("clsss", "ErrorMsg").text("please provide a valid email address. This username maybe already taken");
                 $("#username-input").after(Emsg)
             }
         })
@@ -105,6 +101,8 @@ $(document).on("click", "#logout-btn", function (event) {
 
 $(document).on("click", "#login", function (event) {
     event.preventDefault();
+    $(".Emsg").remove();
+
     var userEmail = $("#username").val().trim();
     var userPass = $("#Password").val().trim();
     console.log(userEmail, userPass)
@@ -114,16 +112,31 @@ $(document).on("click", "#login", function (event) {
             window.location.href = "profile.html";
         }
     }).catch((error) => {
-        console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
+        console.log(error)
+        console.log(error.code)
+        console.log(error.message)
+        if (error.code === "auth/user-not-found") {
+            console.log("not found DUDEEEEEE");
+            var LF1msg = $('<p>').attr("class", "Emsg").text("There is no account corresponding to this Email ID.")
+            $("#username").after(LF1msg);
+        }
+        else if (error.code === "auth/wrong-password") {
+            console.log("Worngh pass dudeee!!!")
+            var LF2msg = $('<p>').attr("class", "Emsg").text("Worng password! try again")
+            $("#Password").after(LF2msg);
+        } else if (error.code === "auth/invalid-email") {
+            console.log("bad Email dudeee!!!")
+            var LF3msg = $('<p>').attr("class", "Emsg").text("The email address is badly formatted.")
+            $("#username").after(LF3msg);
+        }
+
     })
 })
 
 // gather information for ourself about the state of user
 auth.onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        console.log(firebaseUser);
         console.log("user is logged in");
-
         database.ref("/userinfo")
             .orderByChild("userId")
             .equalTo(firebaseUser.uid)
