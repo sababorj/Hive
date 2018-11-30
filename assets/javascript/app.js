@@ -9,12 +9,24 @@ auth.onAuthStateChanged(firebaseUser => {
             .once("child_added", function (snapshot) {
                 console.log(snapshot.val());
                 userInfo = snapshot.val();
+
+                // Change the HTML to reflect
+                $("#name-tag").text(snapshot.val().firstName);
+                $("#birthday-slot").text(snapshot.val().birthday);
+                $("#zipcode-slot").text(snapshot.val().zipcode);
+
+                
                 // variables to store google places search parameters (hard-coded now for testing but will get from user input when page is ready)
                 var userLocation = snapshot.val().zipcode;
-                // var userInterest = "restaurant";
-                var userInterst = snapshot.val().interest1;
-                console.log(userInterst);
-                var userInterestParam = "italian";
+                var userInterest = snapshot.val().interst1.type;
+                console.log(userInterest);
+                var userInterestParam = userInterest;
+
+                
+                var userInterest2 = snapshot.val().interst2.type;
+                console.log(userInterest2);
+                var userInterestParam2 = userInterest2;
+                console.log(userInterestParam2);
                 var professionalInterest = "startup";
                 //url for proxy server which we need to make requests from the google places api
                 var corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/";
@@ -22,26 +34,6 @@ auth.onAuthStateChanged(firebaseUser => {
                 //url for geocode api that will convert our zipcode to lattitude and longitude
                 var geocodeAPIUrl = `https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:${userLocation}&key=${apiKey}`;
                 //calling the geocode api via proxy server
-
-                    console.log(snapshot.val().firstName);
-                    console.log(snapshot.val().lastName);
-                    console.log(snapshot.val().pet);
-                    // console.log(snapshot.val().userID); COMING UP AS UNDEFINED
-                    console.log(snapshot.val().zipcode);
-                    // console.log(snapshot.val().interst1.category); 
-
-                    // Change the HTML to reflect
-                    $("#name-tag").text(snapshot.val().firstName);
-                    $("#birthday-slot").text(snapshot.val().birthday);
-                    $("#zipcode-slot").text(snapshot.val().zipcode);
-
-                    // Handle the errors
-                }, function (errorObject) {
-                    console.log("Errors handled: " + errorObject.code);
-                });
-
-
-
                 $.ajax({
                     url: corsAnywhereUrl + geocodeAPIUrl,
                     method: "GET"
@@ -116,8 +108,8 @@ auth.onAuthStateChanged(firebaseUser => {
                         });
                     });
             }
-            
-    else {
+            );
+    } else {
         console.log("user id loged off")
     }
 })
