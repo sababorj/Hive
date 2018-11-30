@@ -75,7 +75,20 @@ p {
     color:white;
     text-shadow:2px 2px #333;
   }
+  
+
+#white {
+    color:white;
+}
+
 .pad-top{
     padding-top:30px;
     padding-bottom:30px;
+}
+
+#Pmsg, #Zmsg, #Emsg {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px
 }
