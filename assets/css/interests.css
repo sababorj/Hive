@@ -27,8 +27,13 @@ h1,h5
     
     color: royalblue;
 }
-h6{
-    color:black;
+h5
+{
+    margin-left:2%;
+}
+h6
+{
+    color:grey;
 }
 button{
     width: 100%
@@ -45,13 +50,6 @@ button{
 }
 
 
-#myModalLabel
-{
-    align-content: center;
-    color: royalblue;
-    margin-left:21%;
-}
-
 .close
 {
     float:right;
@@ -61,4 +59,14 @@ button{
 .btnclose
 {
     margin-bottom:1%;
+    width:25%;
+    align-content: center;
+}
+
+i
+{
+    color:royalblue;
+    size:1px;
+    margin-left: 1%;
+    margin-top:1%;
 }
