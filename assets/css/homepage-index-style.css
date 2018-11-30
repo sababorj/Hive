@@ -2,6 +2,10 @@
     height: 90px;
 }
 
+a {
+    color: white;
+}
+
 .nav-link {
         background-color: transparent; 
         color: white; 
@@ -51,6 +55,14 @@ body {
 
 #group-1{
     margin-top: 50px;
+    background-color: rgb(112, 112, 112);
+    color: white;
+    padding: 50px;
+}
+#register-white:hover {
+    background-color: white;
+
+    
 }
 
 p {
