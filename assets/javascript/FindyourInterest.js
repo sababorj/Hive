@@ -36,4 +36,5 @@ $.each($('.imageselected'), function(i) {
     userInterests.push(interestDataObject);   
 })
 console.log(userInterestObject);
+database.ref("/userinfo").push(userInterestObject);
     });         

@@ -77,15 +77,10 @@ auth.onAuthStateChanged(firebaseUser => {
                             method: "GET"
                         }).then(function (response) {
                             for (j = 0; j < 3; j++) {
-                                console.log(response.events[j]);
                                 var eventName = $("<p>").html(`<b>${response.events[j].name}</b>`);
-                                console.log(eventName);
                                 var eventGroup = $("<p>").text(response.events[j].group.name);
-                                console.log(eventGroup);
                                 var eventDate = response.events[j].local_date;
-                                console.log(eventDate);
                                 var eventTime = response.events[j].local_time;
-                                console.log(eventTime);
                                 var eventDateTime = $("<p>").html(`<b>Event Date:</b> ${eventDate}, ${eventTime}`)
                                 var eventUrl = response.events[j].link;
                                 console.log(eventUrl);
