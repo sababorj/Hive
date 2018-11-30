@@ -44,7 +44,8 @@ h1 {
 }
 
 body {
-    background-image: url("https://cms.orientaltrading.com/sites/default/files/projects/hero-lite/desktop/2x/Untitled%20design%20(3)_1.png");
+    background-image: url("http://happyapple.us/wp-content/uploads/2013/04/honeycomb.jpg");
+    background-size: cover;
     font-family: 'Muli', sans-serif;
 }
 

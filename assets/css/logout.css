@@ -1,0 +1,40 @@
+#nav-logo {
+    height: 90px;
+}
+
+.nav-link {
+        background-color: transparent; 
+        color: white; 
+}
+
+
+#profile-btn:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+.dropdown-item {
+    background-color: lightyellow;
+}
+
+.logout1 {
+    text-align: center;
+}
+
+.logout2 {
+  font-family: 'Permanent Marker', cursive;
+    font-family: 'Fredericka the Great', cursive;
+    text-align: center;
+}
+
+#textbox {
+    align-self: center;
+    padding: 200px;
+}
