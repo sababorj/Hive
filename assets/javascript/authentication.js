@@ -85,7 +85,7 @@ $(document).on("submit", "form", function (event) {
             console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
             if (error.code = "auth/email-already-in-use") {
                 username = false;
-                var Emsg = $("<p>").attr("clsss", "ErrorMsg").text("please provide a valid email address. This username maybe already taken");
+                var Emsg = $("<p>").attr("class", "ErrorMsg").text("please provide a valid email address. This username maybe already taken");
                 $("#username-input").after(Emsg)
             }
         })
@@ -122,7 +122,7 @@ $(document).on("click", "#login", function (event) {
         }
         else if (error.code === "auth/wrong-password") {
             console.log("Worngh pass dudeee!!!")
-            var LF2msg = $('<p>').attr("class", "Emsg").text("Worng password! try again")
+            var LF2msg = $('<p>').attr("class", "Emsg").text("Wrong password! try again")
             $("#Password").after(LF2msg);
         } else if (error.code === "auth/invalid-email") {
             console.log("bad Email dudeee!!!")
