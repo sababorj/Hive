@@ -70,72 +70,8 @@ auth.onAuthStateChanged(firebaseUser => {
                         var queryUrlTwo = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&type=${socialInterestTwo}&key=${apiKey}`;
                         console.log(queryUrlTwo);
                         // second api call. using the location variables we retrieved from the call above, we call a nearby search from google places api
-                        $.ajax({
-                            url: corsAnywhereUrl + queryUrlOne,
-                            method: "GET"
-                        })
-                            .then(function (response) {
-                                var nearbyResult = response.results;
-                                // for loop to go through the JSON response and retrieve name, customer rating and address for each object in the results
-                                for (i = 0; i < 3; i++) {
-                                    var placeName = $("<p>").html(`<b> ${nearbyResult[i].name}</b>`);
-                                    var placeRating = $("<p>").html(`<b>Rating</b> ${nearbyResult[i].rating} stars`);
-                                    var placeAddress = $("<p>").html(`<b>Address: </b>${nearbyResult[i].vicinity}`);
-                                    // storing each place object's photo reference in a variable
-                                    var photoRef = nearbyResult[i].photos[0].photo_reference;
-                                    // creating the url we will use to retrieve images from google's place photo service
-                                    var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${photoRef}&key=${apiKey}`;
-                                    var image = $("<img>").attr("id", `place-image${[i]}`);
-                                    image.attr("src", photoQueryUrl);
-                                    // creating a new div that has the class of row
-                                    var newDiv = $("<div>").attr("class", "row");
-                                    // creating a new div with class of col-md-4 and appending our place image
-                                    var imageDiv = $("<div>").attr("class", "col-md-4");
-                                    imageDiv.append(image);
-                                    // creating a text div with class of col-md-8 and appending all of our place text
-                                    var textDiv = $("<div>").attr("class", "col-md-8")
-                                    textDiv.append(placeName, placeRating, placeAddress);
-                                    // appending the image and text divs to the newDiv
-                                    newDiv.append(imageDiv, textDiv);
-
-                                    // appending the newDiv to the html div with id of interest-one-div
-                                    $("#interest-one-div").append(newDiv);
-                                };
-                            });
-
-                        $.ajax({
-                            url: corsAnywhereUrl + queryUrlTwo,
-                            method: "GET"
-                        })
-                            .then(function (response) {
-                                var nearbyResult = response.results;
-                                // for loop to go through the JSON response and retrieve name, customer rating and address for each object in the results
-                                for (i = 0; i < 3; i++) {
-                                    var placeName = $("<p>").html(`<b> ${nearbyResult[i].name}</b>`);
-                                    var placeRating = $("<p>").html(`<b>Rating</b> ${nearbyResult[i].rating} stars`);
-                                    var placeAddress = $("<p>").html(`<b>Address: </b>${nearbyResult[i].vicinity}`);
-                                    // storing each place object's photo reference in a variable
-                                    var photoRef = nearbyResult[i].photos[0].photo_reference;
-                                    // creating the url we will use to retrieve images from google's place photo service
-                                    var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${photoRef}&key=${apiKey}`;
-                                    var image = $("<img>").attr("id", `place-image${[i]}`);
-                                    image.attr("src", photoQueryUrl);
-                                    // creating a new div that has the class of row
-                                    var newDiv = $("<div>").attr("class", "row");
-                                    // creating a new div with class of col-md-4 and appending our place image
-                                    var imageDiv = $("<div>").attr("class", "col-md-4");
-                                    imageDiv.append(image);
-                                    // creating a text div with class of col-md-8 and appending all of our place text
-                                    var textDiv = $("<div>").attr("class", "col-md-8")
-                                    textDiv.append(placeName, placeRating, placeAddress);
-                                    // appending the image and text divs to the newDiv
-                                    newDiv.append(imageDiv, textDiv);
-
-                                    // appending the newDiv to the html div with id of interest-one-div
-                                    $("#interest-two-div").append(newDiv);
-                                };
-                            });
-
+                        gettingGooglePlacesInfo(corsAnywhereUrl, queryUrlOne, apiKey, "interest-one-div");
+                        gettingGooglePlacesInfo(corsAnywhereUrl, queryUrlTwo, apiKey, "interest-two-div");
                         // starting with the meeetup api
                         // variable for meetup api key
                         var meetupKey = "371c3079557627617125571f7e6960";
@@ -159,7 +95,6 @@ auth.onAuthStateChanged(firebaseUser => {
                                 meetupDetailsDiv.append(eventName, eventGroup, eventDateTime);
                                 meetupDiv.append(meetupDetailsDiv);
                                 $("#interest-three-div").append(meetupDiv);
-
                             }
                         });
                     });
@@ -167,6 +102,40 @@ auth.onAuthStateChanged(firebaseUser => {
             );
     } else {
         console.log("user id loged off")
-        window.location.href = "index.html"
+        window.location.href = "logout.html"
     }
 })
+// function for call the google places api 
+function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
+    $.ajax({
+        url: corsAnywhereUrl + url,
+        method: "GET"
+    })
+        .then(function (response) {
+            var nearbyResult = response.results;
+            // for loop to go through the JSON response and retrieve name, customer rating and address for each object in the results
+            for (i = 0; i < 3; i++) {
+                var placeName = $("<p>").html(`<b> ${nearbyResult[i].name}</b>`);
+                var placeRating = $("<p>").html(`<b>Rating</b> ${nearbyResult[i].rating} stars`);
+                var placeAddress = $("<p>").html(`<b>Address: </b>${nearbyResult[i].vicinity}`);
+                // storing each place object's photo reference in a variable
+                var photoRef = nearbyResult[i].photos[0].photo_reference;
+                // creating the url we will use to retrieve images from google's place photo service
+                var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${photoRef}&key=${apiKey}`;
+                var image = $("<img>").attr("id", `place-image${[i]}`);
+                image.attr("src", photoQueryUrl);
+                // creating a new div that has the class of row
+                var newDiv = $("<div>").attr("class", "row");
+                // creating a new div with class of col-md-4 and appending our place image
+                var imageDiv = $("<div>").attr("class", "col-md-4");
+                imageDiv.append(image);
+                // creating a text div with class of col-md-8 and appending all of our place text
+                var textDiv = $("<div>").attr("class", "col-md-8")
+                textDiv.append(placeName, placeRating, placeAddress);
+                // appending the image and text divs to the newDiv
+                newDiv.append(imageDiv, textDiv);
+                // appending the newDiv to the html div with id of interest-one-div
+                $("#"+divName).append(newDiv);
+            };
+        });
+}
