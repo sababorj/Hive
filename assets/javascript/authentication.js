@@ -12,25 +12,26 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var auth = firebase.auth();
 
-
 // this function will gather valid user input
 
-$(document).on("click", "#register-user", function (event) {
+$(document).on("submit", "form", function (event) {
     event.preventDefault();
-    $(".alert").empty();
-    // verify the data
-    // var username = false;
-    //     var Umsg = $("<p>").text("Please provide a username")
-    //     $("#userAlert").append(Umsg)
-    // @TODO: if user name is in use dont do it
+    $("#Pmsg").remove();
+    $("#Zmsg").remove();
+    $("#Emsg").remove();
+    
+    var favAnnimal;
+    $("#annimal").val() == "Select your faveriot animal!" ? favAnnimal = "pet" : favAnnimal = $("#annimal").val();
+
     var username = $("#username-input").val().trim()
 
     if ($("#password-input").val().trim().length > 5) {
         password = $("#password-input").val().trim()
     } else {
         password = false;
-        var Pmsg = $("<p>").text("Please provide 6 digit")
-        $("#passAlert").append(Pmsg)
+        Pmsg = $('<p>').attr("id","Pmsg").text("Please provide at least 6 charecter")
+        $("#password-input").empty()
+        $("#password-input").after(Pmsg)
     }
 
     var firstName = $("#first-input").val().trim()
@@ -45,8 +46,9 @@ $(document).on("click", "#register-user", function (event) {
         var zipcode = parseInt($("#zip-input").val().trim())
     } else {
         var zipcode = false;
-        var Zmsg = $("<p>").text("Please provide a valid zipcode")
-        $("#zipcodeAlert").append(Zmsg)
+        Zmsg = $('<p>').attr("id","Zmsg").text("Please provide valid zipcode")
+        $("#zip-input").empty()
+        $("#zip-input").after(Zmsg)
     }
 
     // if all the fields are filed correctly create the user object
@@ -59,7 +61,8 @@ $(document).on("click", "#register-user", function (event) {
             "firstName": firstName,
             "lastName": lastName,
             "birthday": birthDate,
-            "zipcode": zipcode
+            "zipcode": zipcode,
+            "pet" : favAnnimal
         }
         data = true;
     }
@@ -76,13 +79,19 @@ $(document).on("click", "#register-user", function (event) {
                     lastName: userInfoObj.lastName,
                     birthday: userInfoObj.birthday,
                     zipcode: userInfoObj.zipcode,
-                    userId: loggedInUser.uid
+                    pet: userInfoObj.pet,
+                    userId: loggedInUser.uid,
                 });
                 // move to the interest page
                 window.location.href = "interests.html";
             }
         }).catch(function (error) {
             console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
+            if(error.code = "auth/email-already-in-use"){
+                username = false;
+                var Emsg = $("<p>").attr("id","Emsg").text("This email is already in use, please try again");
+                $("#username-input").after(Emsg)
+            }
         })
     }
 })
