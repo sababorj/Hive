@@ -66,7 +66,6 @@ auth.onAuthStateChanged(firebaseUser => {
                                     textDiv.append(placeName, placeRating, placeAddress);
                                     // appending the image and text divs to the newDiv
                                     newDiv.append(imageDiv, textDiv);
-
                                     // appending the newDiv to the html div with id of interest-one-div
                                     $("#interest-one-div").append(newDiv);
                                 };
