@@ -23,7 +23,7 @@ auth.onAuthStateChanged(firebaseUser => {
                         socialLimit--;
                     }
                     else {
-                        alert("You have reached your limit of Interests");
+                        $('#myModal').modal('show');
                     }
                 });
                 var profLimit = 1;
@@ -37,7 +37,7 @@ auth.onAuthStateChanged(firebaseUser => {
                         profLimit--;
                     }
                     else {
-                        alert("You have reached your limit of Interests");
+                        $('#myModal').modal('show'); 
                     }
                 });
                 // when user clicks on create account the new ineterst information will be added to the previous information from registration page  

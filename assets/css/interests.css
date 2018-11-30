@@ -22,10 +22,13 @@ p
     margin-bottom: 20px;
 }
 
-h1
+h1,h5
 {
     
     color: royalblue;
+}
+h6{
+    color:black;
 }
 button{
     width: 100%
@@ -39,4 +42,23 @@ button{
 {
     border:10px solid blue;
 
+}
+
+
+#myModalLabel
+{
+    align-content: center;
+    color: royalblue;
+    margin-left:21%;
+}
+
+.close
+{
+    float:right;
+    width:14%;
+}
+
+.btnclose
+{
+    margin-bottom:1%;
 }
