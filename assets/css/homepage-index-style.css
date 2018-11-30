@@ -86,9 +86,14 @@ p {
     padding-bottom:30px;
 }
 
-#Pmsg, #Zmsg, #Emsg {
+.ErrorMsg {
     color: red;
     font-size: 12px;
     font-weight: bold;
     margin: 0px
+}
+
+.Emsg {
+    color: red;
+    font-weight: bold;
 }
