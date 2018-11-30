@@ -89,7 +89,7 @@ $(document).on("submit", "form", function (event) {
             console.log(`Error code: ${error.code}, Error msg: ${error.message}`)
             if(error.code = "auth/email-already-in-use"){
                 username = false;
-                var Emsg = $("<p>").attr("id","Emsg").text("This email is already in use, please try again");
+                var Emsg = $("<p>").attr("id","Emsg").text("please provide a valid email address. This username maybe already taken");
                 $("#username-input").after(Emsg)
             }
         })
@@ -111,7 +111,6 @@ $(document).on("click", "#login", function (event) {
     auth.signInWithEmailAndPassword(userEmail, userPass).then((user) => {
         if (user) {
             console.log("user is login")
-
             window.location.href = "profile.html";
         }
     }).catch((error) => {
