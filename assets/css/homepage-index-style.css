@@ -2,6 +2,10 @@
     height: 90px;
 }
 
+a {
+    color: white;
+}
+
 .nav-link {
         background-color: transparent; 
         color: white; 
@@ -57,7 +61,7 @@ body {
 }
 #register-white:hover {
     background-color: white;
-    
+
     
 }
 
