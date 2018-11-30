@@ -17,7 +17,7 @@ auth.onAuthStateChanged(firebaseUser => {
 
 
                 var userPet = snapshot.val().pet;
-                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userPet + "&api_key=yFAPwe4TWmpuqbYlD7mElRe2RO3abedf&limit=1";
+                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userPet + "&api_key=yFAPwe4TWmpuqbYlD7mElRe2RO3abedf&g&limit=1";
                 console.log(userPet);
 
                 $.ajax({
