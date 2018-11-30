@@ -1,10 +1,10 @@
 var limit=3;
 $(".image").on("click",function()
 {
-    //var state=$(this).attr("data-state");
+    
     if ($(this).hasClass("imageselected"))
     { 
-    //state=$(this).attr("data-state", "imageselected");
+    
     $(this).removeClass("imageselected");
     limit++;
     } 
@@ -12,8 +12,7 @@ $(".image").on("click",function()
     {       
         $(this).addClass("imageselected");
         limit--;
-        //selected.append(".image");   
-        //state=$(this).attr("data-state", "notselected");
+        
     } 
     else
     {
