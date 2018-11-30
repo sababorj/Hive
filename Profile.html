@@ -45,136 +45,138 @@
                 <p>Text goes here</p>
             </div>
         </div>
-    </div>
-
-    <div class="card" id="recommended-tab" style="width: 14rem;">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>Recommended for You:</strong></li>
-        </ul>
-    </div>
-
-    <div class="container">
         <div class="row">
-            <div class="col-md-4" id="interest-one-div">
-                <h4>Restaurants</h4>
-            </div>
-            <div class="col-md-4" id="interest-two-div">
-                <h4>MeetUps</h4>
-            </div>
-            <div class="col-md-4" id="interest-three-div">
-                <h4>Nightlife</h4>
+            <div class="col-md-12">
+                <div class="card" id="recommended-tab">
+                    <h4>Recommended for You</h4>
+                </div>
             </div>
         </div>
-    </div>
 
-    <footer class="ct-footer">
         <div class="container">
-            <form name="contentForm" enctype="multipart/form-data" method="post" action="">
-                <div class="ct-footer-pre text-center-lg">
-                    <div class="inner">
-                        <span>Join The Hive to receive updates, news & events!</span>
+            <div class="row">
+                <div class="col-md-4" id="interest-one-div">
+                    <h4 id="places-one"></h4>
+                </div>
+                <div class="col-md-4" id="interest-two-div">
+                    <h4 id="places-two"></h4>
+                </div>
+                <div class="col-md-4" id="interest-three-div">
+                    <h4 id="meetup-one"></h4>
+                </div>
+            </div>
+        </div>
+
+        <footer class="ct-footer">
+            <div class="container">
+                <form name="contentForm" enctype="multipart/form-data" method="post" action="">
+                    <div class="ct-footer-pre text-center-lg">
+                        <div class="inner">
+                            <span>Join The Hive to receive updates, news & events!</span>
+                        </div>
+                        <div class="inner">
+                            <div class="form-group">
+                                <input name="formfields[nl_email]" id="nl_email" class="validate[required]" placeholder="Enter your email address"
+                                    type="text" value=""> <label for="nl_email" class="sr-only">Email Address</label>
+                                <button type="submit" class="btn btn-motive">Join</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="inner">
-                        <div class="form-group">
-                            <input name="formfields[nl_email]" id="nl_email" class="validate[required]" placeholder="Enter your email address"
-                                type="text" value=""> <label for="nl_email" class="sr-only">Email Address</label>
-                            <button type="submit" class="btn btn-motive">Join</button>
+                </form>
+                <ul class="ct-footer-list text-center-sm">
+                    <li>
+                        <h2 class="ct-footer-list-header">Our Partners</h2>
+                        <ul>
+                            <li>
+                                <a href="">Meet Up</a>
+                            </li>
+                            <li>
+                                <a href="">Google Places</a>
+                            </li>
+                            <li>
+                                <a href="">The Dating Guru</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2 class="ct-footer-list-header">Learn More</h2>
+                        <ul>
+                            <li>
+                                <a href="">Our Staff</a>
+                            </li>
+                            <li>
+                                <a href="">Contact Us</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <div class="ct-footer-meta text-center-sm">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-2">
+                            <img alt="logo" src="assets/images/mylogo.png">
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <address>
+                                <span>The Hive<br></span>500 5th Ave.<br>
+                                San Diego, California, 92101<br>
+                                <span>Phone: <a href="tel:5555555555">(555) 555-5555</a></span>
+                            </address>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3">
+                            <ul class="ct-socials list-unstyled list-inline">
+                                <li>
+                                    <a href="" target="_blank"><img alt="facebook" src="https://www.solodev.com/assets/footer/facebook-white.png"></a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank"><img alt="twitter" src="https://www.solodev.com/assets/footer/twitter-white.png"></a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank"><img alt="youtube" src="https://www.solodev.com/assets/footer/youtube-white.png"></a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank"><img alt="instagram" src="https://www.solodev.com/assets/footer/instagram-white.png"></a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank"><img alt="pinterest" src="https://www.solodev.com/assets/footer/pinterest-white.png"></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </form>
-            <ul class="ct-footer-list text-center-sm">
-                <li>
-                    <h2 class="ct-footer-list-header">Our Partners</h2>
-                    <ul>
-                        <li>
-                            <a href="">Meet Up</a>
-                        </li>
-                        <li>
-                            <a href="">Google Places</a>
-                        </li>
-                        <li>
-                            <a href="">The Dating Guru</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h2 class="ct-footer-list-header">Learn More</h2>
-                    <ul>
-                        <li>
-                            <a href="">Our Staff</a>
-                        </li>
-                        <li>
-                            <a href="">Contact Us</a>
-                        </li>
-                    </ul>
-                </li>
-          
-            </ul>
-            <div class="ct-footer-meta text-center-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-2">
-                        <img alt="logo" src="assets/images/mylogo.png">
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <address>
-                            <span>The Hive<br></span>500 5th Ave.<br>
-                            San Diego, California, 92101<br>
-                            <span>Phone: <a href="tel:5555555555">(555) 555-5555</a></span>
-                        </address>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3">
-                        <ul class="ct-socials list-unstyled list-inline">
+            </div>
+            <div class="ct-footer-post">
+                <div class="container">
+                    <div class="inner-left">
+                        <ul>
                             <li>
-                                <a href="" target="_blank"><img alt="facebook" src="https://www.solodev.com/assets/footer/facebook-white.png"></a>
+                                <a href="">FAQ</a>
                             </li>
                             <li>
-                                <a href="" target="_blank"><img alt="twitter" src="https://www.solodev.com/assets/footer/twitter-white.png"></a>
+                                <a href="">News</a>
                             </li>
                             <li>
-                                <a href="" target="_blank"><img alt="youtube" src="https://www.solodev.com/assets/footer/youtube-white.png"></a>
-                            </li>
-                            <li>
-                                <a href="" target="_blank"><img alt="instagram" src="https://www.solodev.com/assets/footer/instagram-white.png"></a>
-                            </li>
-                            <li>
-                                <a href="" target="_blank"><img alt="pinterest" src="https://www.solodev.com/assets/footer/pinterest-white.png"></a>
+                                <a href="">Contact Us</a>
                             </li>
                         </ul>
                     </div>
+                    <div class="inner-right">
+                        <p>Copyright © 2016 TheHiveCo.&nbsp;<a href="">Privacy Policy</a></p>
+                        <p><a class="ct-u-motive-color" href="" target="_blank">Web Design</a> by: The Dream Team <a
+                                href="" target="_blank"></a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ct-footer-post">
-            <div class="container">
-                <div class="inner-left">
-                    <ul>
-                        <li>
-                            <a href="">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="">News</a>
-                        </li>
-                        <li>
-                            <a href="">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="inner-right">
-                    <p>Copyright © 2016 TheHiveCo.&nbsp;<a href="">Privacy Policy</a></p>
-                    <p><a class="ct-u-motive-color" href="" target="_blank">Web Design</a> by: The Dream Team <a href=""
-                            target="_blank"></a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>       
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="assets/javascript/authentication.js"></script>
-<script src="assets/javascript/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <script src="assets/javascript/authentication.js"></script>
+        <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
