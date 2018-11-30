@@ -135,5 +135,6 @@ auth.onAuthStateChanged(firebaseUser => {
             );
     } else {
         console.log("user id loged off")
+        window.location.href = "index.html"
     }
 })
