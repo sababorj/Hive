@@ -5,6 +5,8 @@
 .nav-link {
         background-color: transparent; 
         color: white; 
+        border: solid 2px white;
+        margin-left: 10px;
 }
 
 
@@ -13,6 +15,11 @@
     color: black;
     font-weight: bold;
 }
+#profile-btn {
+  background-color: transparent;
+  border: solid 2px white;
+  float: right;
+}
 
 .nav-link:hover {
     background-color: lightyellow;
@@ -20,7 +27,7 @@
     font-weight: bold;
 }
 
-.dropdown-item {
+.dropdown-items {
     background-color: lightyellow;
 }
 
