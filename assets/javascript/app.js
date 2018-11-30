@@ -1,3 +1,38 @@
+// // // Initialize Firebase
+// // var config = {
+// //     apiKey: "AIzaSyAchBPc26tTCgCKlzrk-xY4kAdMTS3ot5w",
+// //     authDomain: "cbc-first.firebaseapp.com",
+// //     databaseURL: "https://cbc-first.firebaseio.com",
+// //     projectId: "cbc-first",
+// //     storageBucket: "cbc-first.appspot.com",
+// //     messagingSenderId: "462974477285"
+// //   };
+// //   firebase.initializeApp(config);
+
+// // // Initialize Values
+// // var database = firebase.database();
+
+// // Capture Event/Click
+// // code in the logic for retrieving the most recent user data
+// database.ref().on("child_added", function (snapshot) {
+//     // Log everything that's coming out of snapshot
+//     console.log(snapshot.val(firstName));
+//     console.log(snapshot.val().interst1);
+//     console.log(snapshot.val().lastName);
+//     console.log(snapshot.val().pet);
+//     console.log(snapshot.val().userID);
+//     console.log(snapshot.val().zipcode);
+
+//     // Change the HTML to reflect
+//     $("#name-tag").text(snapshot.val().name);
+
+//     // Handle the errors
+// }, function (errorObject) {
+//     console.log("Errors handled: " + errorObject.code);
+// });
+
+
+
 auth.onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser);
@@ -20,6 +55,26 @@ auth.onAuthStateChanged(firebaseUser => {
                 //url for geocode api that will convert our zipcode to lattitude and longitude
                 var geocodeAPIUrl = `https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:${userLocation}&key=${apiKey}`;
                 //calling the geocode api via proxy server
+
+                    console.log(snapshot.val().firstName);
+                    // console.log(snapshot.val().interst1); COMING UP AS UNDEFINED
+                    console.log(snapshot.val().lastName);
+                    console.log(snapshot.val().pet);
+                    // console.log(snapshot.val().userID); COMING UP AS UNDEFINED
+                    console.log(snapshot.val().zipcode);
+
+                    // Change the HTML to reflect
+                    $("#name-tag").text(snapshot.val().firstName);
+                    $("#birthday-slot").text(snapshot.val().birthday);
+                    $("#zipcode-slot").text(snapshot.val().zipcode);
+
+                    // Handle the errors
+                }, function (errorObject) {
+                    console.log("Errors handled: " + errorObject.code);
+                });
+
+
+
                 $.ajax({
                     url: corsAnywhereUrl + geocodeAPIUrl,
                     method: "GET"
@@ -94,8 +149,8 @@ auth.onAuthStateChanged(firebaseUser => {
                         });
                     });
             }
-            );
-    } else {
+            
+    else {
         console.log("user id loged off")
     }
 })
