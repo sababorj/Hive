@@ -15,22 +15,27 @@ auth.onAuthStateChanged(firebaseUser => {
                 $("#birthday-slot").text(snapshot.val().birthday);
                 $("#zipcode-slot").text(snapshot.val().zipcode);
 
+
                 var userPet = snapshot.val().pet;
-                // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userPet + "&api_key=yFAPwe4TWmpuqbYlD7mElRe2RO3abedf&limit=1";
-                // console.log(userPet);
+                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userPet + "&api_key=yFAPwe4TWmpuqbYlD7mElRe2RO3abedf&limit=1";
+                console.log(userPet);
 
-                // $.ajax({
-                //     url: queryURL;
-                //     method: "GET"
-                // }).then(function (response) {
-                //     // Creating and storing an image tag
-                //     var userGif = $("<img>");
-                //     userGif.attr("src", imageUrl);
-                //     userGif.attr("alt", "User Avatar");
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    // Creating and storing an image tag
+                    console.log(response);
+                    var userGif = $("<img>");
+                    var imageUrl = response.data[0].images.original.url;
+                    console.log(imageUrl);
+                    console.log(userGif);
+                    userGif.attr("src", imageUrl);
+                    userGif.attr("alt", "User Avatar");
 
-                //     // Prepending the catImage to the images div
-                //     $("#user-avatar").prepend(catImage);
-                // });
+                    // Prepending the catImage to the images div
+                    $("#profile-userpic").append(userGif);
+                });
 
 
 
