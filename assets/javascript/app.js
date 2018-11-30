@@ -58,9 +58,9 @@ auth.onAuthStateChanged(firebaseUser => {
                         // storing the longitude value for zipcode in a variable
                         var userLng = geoResult[0].geometry.location.lng;
                         // creating and storing the query url with user location(formatted: lat.,long) and interest parameters for use in google places api nearby search
-                        var queryUrlOne = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&type=${socialInterestOne}&key=${apiKey}`;
+                        var queryUrlOne = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=15000&type=${socialInterestOne}&key=${apiKey}`;
                         console.log(queryUrlOne);
-                        var queryUrlTwo = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=1500&type=${socialInterestTwo}&key=${apiKey}`;
+                        var queryUrlTwo = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userLat},${userLng}&radius=15000&type=${socialInterestTwo}&key=${apiKey}`;
                         console.log(queryUrlTwo);
                         // second api call. using the location variables we retrieved from the call above, we call a nearby search from google places api
                         gettingGooglePlacesInfo(corsAnywhereUrl, queryUrlOne, apiKey, "interest-one-div");
@@ -75,6 +75,7 @@ auth.onAuthStateChanged(firebaseUser => {
                             url: corsAnywhereUrl + meetupUrl,
                             method: "GET"
                         }).then(function (response) {
+                        if (response){
                             for (j = 0; j < 3; j++) {
                                 var eventName = $("<p>").html(`<b>${response.events[j].name}</b>`);
                                 var eventGroup = $("<p>").text(response.events[j].group.name);
@@ -89,6 +90,11 @@ auth.onAuthStateChanged(firebaseUser => {
                                 meetupDiv.append(meetupDetailsDiv);
                                 $("#interest-three-div").append(meetupDiv);
                             }
+                        } else {
+                            var errorDiv = $("<div>");
+                            errorDiv.html(`<p>There are no upcoming ${professionalInterest} meetups in your area`);
+                            $("#interest-three-div").append(errorDiv);
+                        }      
                         });
                     });
             }
