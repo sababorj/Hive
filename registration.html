@@ -39,24 +39,24 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-dark bg-dark">
-                <a class="navbar-brand" href="#"> <img id="nav-logo" src="assets/images/mylogo.png" title="mylogo.png"></a>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-btn" href="#">My Profile</a>
-                    </li>
-                    <br>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false">Account</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" id="logout-btn" href="#">Log Out</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"> <img id="nav-logo" src="assets/images/mylogo.png" title="mylogo.png"></a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" id="profile-btn" href="#">My Profile</a>
+            </li>
             <br>
+            <li class="nav-item dropdown">
+                <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">Account</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" id="logout-btn" href="#">Log Out</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <br>
 
     <!-- Employee Tracker -->
     <div class="container">
@@ -64,7 +64,7 @@
         <!-- Jumbotron -->
         <div class="jumbotron" style="color: black">
             <h1 class="h1-register">Register Now</h1>
-            <h3 class="h3-register">And Start Buzzin'.</h3>
+            <h3 class="h3-register">And Start Buzzin'!</h3>
         </div>
 
         <div class="row">
@@ -85,7 +85,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="pass-input">Password (minimum 6 characters)</label>
                                     <input class="form-control" type="password" id="password-input" placeholder="At least 6 characters"
-                                        type="text" required>                                </div>
+                                        type="text" required> </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -110,6 +110,26 @@
                                         data-bind="value:replyNumber" required>
                                 </div>
                             </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <select class="form-control" id="annimal">
+                                        <option>Select your faveriot animal!</option>
+                                        <option>Dog</option>
+                                        <option>Cat</option>
+                                        <option>Bird</option>
+                                        <option>Ferret</option>
+                                        <option>Turtle</option>
+                                        <option>Rabbit</option>
+                                        <option>Guinea pig</option>
+                                        <option>Tortoise</option>
+                                        <option>Hamster</option>
+                                        <option>Tiger</option>
+                                        <option>Lion</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <button class="btn btn-primary float-right" id="register-user">Submit</button>
                         </form>
 

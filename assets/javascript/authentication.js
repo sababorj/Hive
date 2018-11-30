@@ -12,19 +12,17 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var auth = firebase.auth();
 
-
 // this function will gather valid user input
 
 $(document).on("submit", "form", function (event) {
     event.preventDefault();
     $("#Pmsg").remove();
     $("#Zmsg").remove();
+    $("#Emsg").remove();
+    
+    var favAnnimal;
+    $("#annimal").val() == "Select your faveriot animal!" ? favAnnimal = "pet" : favAnnimal = $("#annimal").val();
 
-    // verify the data
-    // var username = false;
-    //     var Umsg = $("<p>").text("Please provide a username")
-    //     $("#userAlert").append(Umsg)
-    // @TODO: if user name is in use dont do it
     var username = $("#username-input").val().trim()
 
     if ($("#password-input").val().trim().length > 5) {
@@ -63,7 +61,8 @@ $(document).on("submit", "form", function (event) {
             "firstName": firstName,
             "lastName": lastName,
             "birthday": birthDate,
-            "zipcode": zipcode
+            "zipcode": zipcode,
+            "pet" : favAnnimal
         }
         data = true;
     }
@@ -80,7 +79,8 @@ $(document).on("submit", "form", function (event) {
                     lastName: userInfoObj.lastName,
                     birthday: userInfoObj.birthday,
                     zipcode: userInfoObj.zipcode,
-                    userId: loggedInUser.uid
+                    pet: userInfoObj.pet,
+                    userId: loggedInUser.uid,
                 });
                 // move to the interest page
                 window.location.href = "interests.html";
