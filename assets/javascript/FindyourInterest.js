@@ -12,21 +12,34 @@ auth.onAuthStateChanged(firebaseUser => {
                 userInfo = snapshot.val();
 
                 // this logic will limit user to only chose 3 ineterst 
-                var limit = 3;
-                $(".image").on("click", function () {
+                var socialLimit = 2;
+                $(".social").on("click", function () {
                     if ($(this).hasClass("imageselected")) {
                         $(this).removeClass("imageselected");
-                        limit++;
+                        socialLimit++;
                     }
-                    else if (limit > 0) {
+                    else if (socialLimit > 0) {
                         $(this).addClass("imageselected");
-                        limit--;
+                        socialLimit--;
                     }
                     else {
-                        alert("You have reached your limit of Interests");
+                        $('#myModal').modal('show');
                     }
                 });
-
+                var profLimit = 1;
+                $(".professional").on("click", function () {
+                    if ($(this).hasClass("imageselected")) {
+                        $(this).removeClass("imageselected");
+                        profLimit++;
+                    }
+                    else if (profLimit > 0) {
+                        $(this).addClass("imageselected");
+                        profLimit--;
+                    }
+                    else {
+                        $('#myModal').modal('show'); 
+                    }
+                });
                 // when user clicks on create account the new ineterst information will be added to the previous information from registration page  
                 $("#create-account").on("click", function () {
                     //get values from the images with a class of imageselected

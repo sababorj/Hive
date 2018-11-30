@@ -11,6 +11,9 @@
         crossorigin="anonymous">
     <!-- Our own CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/interests.css">
+    <!-- FontAwesome stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Firebase Refrence -->
@@ -18,75 +21,133 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">What are your Interests?</h1>
-        </div>
-    </div>
-    <div class="table-responsive-lg">
-        <div class="row" id="giphy-list1">
-            <div class="col-sm-2">
-                <img id="art_gallery"  img-data="places" class="image" src="assets/images/art.jpg" data-state="notselected"/>
-                <p>ART-GALLERY</p>
+
+    <!-- Insert Nav/Header here -->
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Social Interests (Please select 2)
             </div>
-            <div class="col-sm-2">
-                <img id="restaurant" class="image" img-data="places" src="assets/images/restaurant.jpg" />
-                <p>Restaurant</p>
-            </div>
-            <div class="col-sm-2">
-                <img id="cafe" class="image" img-data="meetup" src="assets/images/cafe.jpg" />
-                <p>Cafe</p>
-            </div>
-            <div class="col-sm-2">
-                <img id="gym" class="image" src="assets/images/gym.jpg" />
-                <p>Gym</p>
-            </div>
-            <div class="col-sm-2">
-                <img id="movie_theater" class="image" src="assets/images/movies.jpg" />
-                <p>MovieTheater</p>
-            </div>
-        </div>
-        <div class="row" id="giphy-list2">
-            <div class="col-sm-2">
-                <img id="museum" class="image" src="assets/images/museums.jpg" />
-                <p>Museums</p>
-            </div>
-            <div class="col-sm-2">
-                <img id="night_club" class="image" src="assets/images/nightlife.jpg" />
-                <p>Nightlife</p>
-            </div>
-            <div class="col-sm-2">
-                <img id="park" class="image" src="assets/images/outdoors.jpg" />
-                <p>Outdoors</p>
-            </div>
-            <div class="col-sm-2">
-                <img id="spa" class="image" src="assets/images/spa.jpg" />
-                <p>Spa</p>
-            </div>
-            <div class="col-sm-2">
-                <img id="zoo" class="image" src="assets/images/wildlife.jpg" />
-                <p>Zoo</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-5">
-                    <img id="technology" class="image" src="http://www.justscience.in/wp-content/uploads/2018/01/what-are-the-implications-of-ever-increasing-globalization-through-technology-to-the-global-economy.jpg" />
-                    <p class="meetup">Technology Meetup's</p>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img id="art_gallery" img-data="places" class="image social" src="assets/images/art.jpg"
+                            data-state="notselected" />
+                        <p>Art</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="restaurant" class="image social" img-data="places" src="assets/images/restaurant.jpg" />
+                        <p>Restaurants</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="cafe" class="image social" img-data="places" src="assets/images/cafe.jpg" />
+                        <p>Cafes</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="gym" class="image social" img-data="places" src="assets/images/gym.jpg" />
+                        <p>Fitness</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="movie_theater" class="image social" img-data="places" src="assets/images/movies.jpg" />
+                        <p>Movies</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="museum" class="image social" img-data="places" src="assets/images/museums.jpg" />
+                        <p>Culture</p>
+                    </div>
                 </div>
-                <div class="col-lg-5">
-                    <img id="startup" class="image" src="assets/images/startup.jpg" />
-                    <p class="meetup"> Startup Meetup's</p>
-                </div>                
+                <div class="row">
+                    <div class="col-md-2">
+                        <img id="night_club" class="image social" img-data="places" src="assets/images/nightlife.jpg" />
+                        <p>Nightlife</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="park" class="image social" img-data="places" src="assets/images/outdoors.jpg" />
+                        <p>Outdoors</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="spa" class="image social" img-data="places" src="assets/images/spa.jpg" />
+                        <p>Health & Beauty</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="zoo" class="image social" img-data="places" src="assets/images/wildlife.jpg" />
+                        <p>Wildlife</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="library" class="image social" img-data="places" src="assets/images/reading.jpg" />
+                        <p>Reading</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="department_store" class="image social" img-data="places" src="assets/images/shopping.jpg" />
+                        <p>Shopping</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-5">
-                <button><a href="javascript:history.back()">Go Back</a></button>
+        <div class="card">
+            <div class="card-header">
+                Professional Interests (Please select 1)
             </div>
-            <div class="col-sm-5">
-                <button id="create-account">Create an account</button>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img id="technology" class="image professional" img-data="meetup" src="assets/images/technology.jpg" />
+                        <p class="meetup">Technology</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="startup" class="image professional" img-data="meetup" src="assets/images/startup.jpg" />
+                        <p class="meetup">Entrepreneurship</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="marketing" class="image professional" img-data="meetup" src="assets/images/marketing.jpg" />
+                        <p class="meetup">Marketing</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="science" class="image professional" img-data="meetup" src="assets/images/science.jpg" />
+                        <p class="meetup">Science</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="wellness" class="image professional" img-data="meetup" src="assets/images/wellness.jpg" />
+                        <p class="meetup">Wellness</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="engineering" class="image professional" img-data="meetup" src="assets/images/engineering.jpg" />
+                        <p class="meetup">Engineering</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button><a href="javascript:history.back()">Go Back</a></button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="create-account">Create an account</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h5 class="myModalLabel" id="exampleModalCenterTitle">Info Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>You have reached your limit of selecting interests</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btnclose btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- javascript link -->
@@ -94,4 +155,5 @@
     <script src="assets/javascript/FindyourInterest.js"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
