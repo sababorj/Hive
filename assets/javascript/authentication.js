@@ -96,10 +96,6 @@ $(document).on("submit", "form", function (event) {
     }
 })
 
-$(document).on("click", "#create-account", function () {
-    window.location.href = "profile.html"
-})
-
 $(document).on("click", "#logout-btn", function (event) {
     event.preventDefault();
     auth.signOut();
