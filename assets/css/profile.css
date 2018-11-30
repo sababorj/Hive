@@ -8,8 +8,9 @@
         border: solid 2px white;
         margin-left: 10px;
 }
-
-
+body {
+  background-image: url("http://happyapple.us/wp-content/uploads/2013/04/honeycomb.jpg");
+}
 #profile-btn:hover {
     background-color: lightyellow;
     color: black;
@@ -27,7 +28,7 @@
     font-weight: bold;
 }
 
-.dropdown-item {
+.dropdown-items {
     background-color: lightyellow;
 }
 
