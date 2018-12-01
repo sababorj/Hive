@@ -75,9 +75,13 @@ auth.onAuthStateChanged(firebaseUser => {
                                     var eventTime = response.events[j].local_time;
                                     var eventDateTime = $("<p>").html(`<b>Event Date:</b> ${eventDate}, ${eventTime}`)
                                     var eventUrl = response.events[j].link;
+                                    var a = $("<a>")
+                                    a.attr("href", eventUrl);
+                                    a.attr("target", "blank");
+                                    a.append(eventName);
                                     var meetupDiv = $("<div>").attr("class", "row");
                                     var meetupDetailsDiv = $("<div>").attr("class", "col-md-12");
-                                    meetupDetailsDiv.append(eventName, eventGroup, eventDateTime);
+                                    meetupDetailsDiv.append(a, eventGroup, eventDateTime);
                                     meetupDiv.append(meetupDetailsDiv);
                                     $("#interest-three-div").append(meetupDiv);
                                 }
