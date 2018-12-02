@@ -13,8 +13,8 @@ p
   margin-top: 0%; 
   text-align: center;
   font-weight: bold;
-  background-color:royalblue;
-  color: white;
+  background-color:#CECECE;
+  color:black;
   width: 100%;
   height: 25px;
 }
@@ -30,6 +30,7 @@ h1,h5
 h5
 {
     margin-left:2%;
+    color: black;
 }
 h6
 {
@@ -45,7 +46,7 @@ button{
 
 .imageselected
 {
-    border:10px solid blue;
+    border:10px solid #FFF6AA;
 
 }
 
@@ -54,6 +55,7 @@ button{
 {
     float:right;
     width:14%;
+    color:black;
 }
 
 .btnclose
@@ -61,12 +63,63 @@ button{
     margin-bottom:1%;
     width:25%;
     align-content: center;
+    background-color: grey;
+    font: white;
 }
 
 i
 {
-    color:royalblue;
+    color:black;
     size:1px;
     margin-left: 1%;
     margin-top:1%;
+}
+
+.card-header
+{
+    background-color:black;
+    color:white;
+    font:bold;
+    font-weight: 500;
+}
+
+#create-account:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+#Backbtn:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+#create-account {
+    background-color:grey;
+    font-weight: bold;
+    color:white;
+}
+
+#Backbtn{
+    background-color: grey;
+    color:black;
+    font-weight: bold;
+}
+
+.backlink{
+    color:white;
+}
+
+.backlink:hover
+{
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+.btnclose:hover
+{
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
 }
