@@ -77,7 +77,7 @@ i
 
 .card-header
 {
-    background-color:black;
+    background-color: #343a40;
     color:white;
     font:bold;
     font-weight: 500;
@@ -97,7 +97,7 @@ i
 
 
 #create-account {
-    background-color:grey;
+    background-color:#343a40;
     font-weight: bold;
     color:white;
 }

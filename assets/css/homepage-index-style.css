@@ -58,6 +58,7 @@ body {
     background-color: rgb(112, 112, 112);
     color: white;
     padding: 50px;
+    padding-bottom: 10px;
 }
 #register-white:hover {
     background-color: white;
