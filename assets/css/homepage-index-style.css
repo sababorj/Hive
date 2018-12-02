@@ -58,6 +58,7 @@ body {
     background-color: rgb(112, 112, 112);
     color: white;
     padding: 50px;
+    padding-bottom: 10px;
 }
 #register-white:hover {
     background-color: white;
@@ -108,4 +109,25 @@ p {
 .Emsg {
     color: red;
     font-weight: bold;
+}
+
+
+#join-hive {
+    background: #333;
+    color: white;
+}
+
+#value-id {
+    background: #333;
+    color: white;
+}
+
+#hivenum {
+    background: #333;
+    color: white;
+}
+
+#main-foot {
+    background: #333;
+    color: white;
 }
