@@ -35,16 +35,19 @@ h1 {
 }
 
 .h1-register{
-    color:black;
+    color:white;
     text-align: center;
-
 }
 
 .h3-register{
-    color: black;
+    color: white;
     font-family: 'Muli', sans-serif;
     text-align: center;
 
+}
+.reg-header {
+    background-color: #343a40;
+    color:white;
 }
 
 body {
@@ -55,7 +58,8 @@ body {
 
 #group-1{
     margin-top: 50px;
-    background-color: rgb(112, 112, 112);
+    margin-bottom: 50px;
+    background-color: #343a40;
     color: white;
     padding: 50px;
     padding-bottom: 10px;

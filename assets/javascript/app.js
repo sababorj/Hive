@@ -7,7 +7,6 @@ auth.onAuthStateChanged(firebaseUser => {
             .equalTo(firebaseUser.uid)
             .once("child_added", function (snapshot) {
                 userInfo = snapshot.val();
-
                 // change the HTML to reflect
                 $("#name-tag").text(snapshot.val().firstName);
                 $("#birthday-slot").text(snapshot.val().birthday);
@@ -23,7 +22,6 @@ auth.onAuthStateChanged(firebaseUser => {
                     var imageUrl = response.data[0].images.original.url;
                     userGif.attr("src", imageUrl);
                     userGif.attr("alt", "User Avatar");
-
                     // prepending the gif to the profile div
                     $("#profile-userpic").append(userGif);
                 });
@@ -67,16 +65,16 @@ auth.onAuthStateChanged(firebaseUser => {
                             method: "GET"
                         }).then(function (response) {
                             if (response) {
-                                for (j = 0; j < 3; j++) {
+                                for (var j = 0; j < 3; j++) {
                                     // creating html elements and display results
                                     var eventName = $("<p>").html(`<b>${response.events[j].name}</b>`);
                                     var eventGroup = $("<p>").text(response.events[j].group.name);
                                     var eventDate = response.events[j].local_date;
                                     var eventTime = response.events[j].local_time;
                                     var eventDateTime = $("<p>").html(`<b>Event Date:</b> ${eventDate}, ${eventTime}`)
-                                    var eventUrl = response.events[j].link;
+                                    var eventLink = response.events[j].link;
                                     var a = $("<a>")
-                                    a.attr("href", eventUrl);
+                                    a.attr("href", eventLink);
                                     a.attr("target", "blank");
                                     a.append(eventName);
                                     var meetupDiv = $("<div>").attr("class", "row");
@@ -100,7 +98,7 @@ auth.onAuthStateChanged(firebaseUser => {
         window.location.href = "logout.html"
     }
 })
-// function passing user specific parameters for call the google places api 
+// function passing user specific parameters for calling the google places api 
 function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
     $.ajax({
         url: corsAnywhereUrl + url,
@@ -109,7 +107,7 @@ function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
         .then(function (response) {
             var nearbyResult = response.results;
             // for loop through JSON response retrieve place info
-            for (i = 0; i < 3; i++) {
+            for (var i = 0; i < 3; i++) {
                 var placeName = $("<p>").html(`<b> ${nearbyResult[i].name}</b>`);
                 var placeRating = $("<p>").html(`<b>Rating</b> ${nearbyResult[i].rating} stars`);
                 var placeAddress = $("<p>").html(`<b>Address: </b>${nearbyResult[i].vicinity}`);
@@ -129,4 +127,4 @@ function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
                 $("#" + divName).append(newDiv);
             };
         });
-}
+};
