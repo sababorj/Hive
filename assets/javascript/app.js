@@ -74,9 +74,9 @@ auth.onAuthStateChanged(firebaseUser => {
                                     var eventDate = response.events[j].local_date;
                                     var eventTime = response.events[j].local_time;
                                     var eventDateTime = $("<p>").html(`<b>Event Date:</b> ${eventDate}, ${eventTime}`)
-                                    var eventUrl = response.events[j].link;
+                                    var eventLink = response.events[j].link;
                                     var a = $("<a>")
-                                    a.attr("href", eventUrl);
+                                    a.attr("href", eventLink);
                                     a.attr("target", "blank");
                                     a.append(eventName);
                                     var meetupDiv = $("<div>").attr("class", "row");
@@ -100,7 +100,7 @@ auth.onAuthStateChanged(firebaseUser => {
         window.location.href = "logout.html"
     }
 })
-// function passing user specific parameters for call the google places api 
+// function passing user specific parameters for calling the google places api 
 function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
     $.ajax({
         url: corsAnywhereUrl + url,
@@ -119,14 +119,28 @@ function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
                 var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${photoRef}&key=${apiKey}`;
                 var image = $("<img>").attr("id", `place-image${[i]}`);
                 image.attr("src", photoQueryUrl);
-                // creating html elements to display results
-                var newDiv = $("<div>").attr("class", "row");
-                var imageDiv = $("<div>").attr("class", "col-md-4");
-                imageDiv.append(image);
-                var textDiv = $("<div>").attr("class", "col-md-8")
-                textDiv.append(placeName, placeRating, placeAddress);
-                newDiv.append(imageDiv, textDiv);
-                $("#" + divName).append(newDiv);
+                // creating the url to retrieve recommended venue's google maps url
+                var placeId = nearbyResult[i].place_id;
+                var placeDetailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&fields=url&key=${apiKey}`;
+                $.ajax({
+                    url: corsAnywhereUrl + placeDetailsUrl,
+                    method: "GET"
+                })
+                    .then(function (response) {
+                        var venueLink = response.result.url;
+                        // creating html elements to display results
+                        var a = $("<a>")
+                        a.attr("href", venueLink);
+                        a.attr("target", "blank");
+                        a.append(placeName);
+                        var newDiv = $("<div>").attr("class", "row");
+                        var imageDiv = $("<div>").attr("class", "col-md-4");
+                        imageDiv.append(image);
+                        var textDiv = $("<div>").attr("class", "col-md-8")
+                        textDiv.append(a, placeRating, placeAddress);
+                        newDiv.append(imageDiv, textDiv);
+                        $("#" + divName).append(newDiv);
+                    });
             };
         });
-}
+};
