@@ -116,6 +116,6 @@ auth.onAuthStateChanged(firebaseUser => {
             })
     } else {
         console.log("user is not loged in")
-        window.location.href = "./index.html"
+        window.location.href = "./logout.html"
     }
 });
