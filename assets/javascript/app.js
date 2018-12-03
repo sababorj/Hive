@@ -109,7 +109,7 @@ function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
         .then(function (response) {
             var nearbyResult = response.results;
             // for loop through JSON response retrieve place info
-            for (i = 0; i < 3; i++) {
+            for (var i = 0; i < 3; i++) {
                 var placeName = $("<p>").html(`<b> ${nearbyResult[i].name}</b>`);
                 var placeRating = $("<p>").html(`<b>Rating</b> ${nearbyResult[i].rating} stars`);
                 var placeAddress = $("<p>").html(`<b>Address: </b>${nearbyResult[i].vicinity}`);
