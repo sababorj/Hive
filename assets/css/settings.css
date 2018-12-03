@@ -83,7 +83,7 @@ i
     font-weight: 500;
 }
 
-#create-account:hover {
+#save-change:hover {
     background-color: lightyellow;
     color: black;
     font-weight: bold;
@@ -96,8 +96,8 @@ i
 }
 
 
-#create-account {
-    background-color:#343a40;
+#save-change {
+    background-color: lightseagreen;
     font-weight: bold;
     color:white;
 }
@@ -140,6 +140,7 @@ i
 body {
   background-image: url("http://happyapple.us/wp-content/uploads/2013/04/honeycomb.jpg");
 }
+
 #profile-btn:hover {
     background-color: lightyellow;
     color: black;
@@ -159,4 +160,12 @@ body {
 
 .dropdown-items {
     background-color: lightyellow;
+}
+
+.form-container {
+    margin-top : 20px;
+    margin-bottom: 0px;
+}
+#animal {
+    width: 100%;
 }

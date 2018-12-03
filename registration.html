@@ -40,15 +40,15 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"> <img id="nav-logo" src="assets/images/mylogo.png" title="mylogo.png"></a>
+        <a class="navbar-brand" href="#"> <img id="nav-logo" src="assets/images/hive-logo.png" title="mylogo.png"></a>
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link" id="profile-btn" href="#">My Profile</a>
+                <a class="nav-link" id="profile-btn" href="#" hidden>My Profile</a>
             </li>
             <br>
             <li class="nav-item dropdown">
                 <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">Account</a>
+                    aria-expanded="false" hidden>Account</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Settings</a>
                     <a class="dropdown-item" id="logout-btn" href="#">Log Out</a>
@@ -78,18 +78,18 @@
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="username-input">Email</label>
+                                    <label for="username-input">Email*</label>
                                     <input class="form-control" id="username-input" placeholder="Username" type="text"
                                         required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="pass-input">Password (minimum 6 characters)</label>
+                                    <label for="pass-input">Password (minimum 6 characters)*</label>
                                     <input class="form-control" type="password" id="password-input" placeholder="At least 6 characters"
                                         type="text" required> </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="first-input">First Name</label>
+                                    <label for="first-input">First Name*</label>
                                     <input class="form-control" id="first-input" placeholder="First Name" type="text"
                                         required>
                                 </div>
@@ -105,7 +105,7 @@
                                         min="00/00/0000">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="zip-input">Zip Code</label>
+                                    <label for="zip-input">Zip Code*</label>
                                     <input class="form-control" id="zip-input" placeholder="92101" type="number"
                                         data-bind="value:replyNumber" required>
                                 </div>
@@ -139,6 +139,44 @@
         </div>
 
     </div>
+    <footer class="ct-footer" id="main-foot">
+            <div class="container" id="footer-id">
+                <form name="contentForm" enctype="multipart/form-data" method="post" action="">
+                    <div class="ct-footer-pre text-center-lg">
+                        <div class="inner" id="join-hive">
+                            <span>Join The Hive to receive updates, news & events!</span>
+                        </div>
+                        <div class="inner">
+                            <div class="form-group" id="value-id">
+                                <input name="formfields[nl_email]" id="nl_email" class="validate[required]" placeholder="Enter your email address"
+                                    type="text" value=""> <label for="nl_email" class="sr-only">Email Address</label>
+                                <button type="submit" class="btn btn-motive">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="ct-footer-meta text-center-sm" id="hivenum">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3">
+                            <address>
+                                <span>The Hive<br></span>500 5th Ave.<br>
+                                San Diego, California, 92101<br>
+                                <span>Phone: <a href="tel:5555555555">(555) 555-5555</a></span>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ct-footer-post">
+                <div class="container">
+                    <div class="inner-right">
+                        <p>Copyright © 2016 TheHiveCo.&nbsp;<a href="">Privacy Policy</a></p>
+                        <p><a class="ct-u-motive-color" href="" target="_blank">Web Design</a> by: The Dream Team <a href=""
+                                target="_blank"></a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     <!-- javascript link -->
     <script src="assets/javascript/authentication.js"></script>
 </body>
