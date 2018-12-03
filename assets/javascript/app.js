@@ -7,7 +7,6 @@ auth.onAuthStateChanged(firebaseUser => {
             .equalTo(firebaseUser.uid)
             .once("child_added", function (snapshot) {
                 userInfo = snapshot.val();
-
                 // change the HTML to reflect
                 $("#name-tag").text(snapshot.val().firstName);
                 $("#birthday-slot").text(snapshot.val().birthday);
@@ -23,7 +22,6 @@ auth.onAuthStateChanged(firebaseUser => {
                     var imageUrl = response.data[0].images.original.url;
                     userGif.attr("src", imageUrl);
                     userGif.attr("alt", "User Avatar");
-
                     // prepending the gif to the profile div
                     $("#profile-userpic").append(userGif);
                 });
@@ -67,7 +65,7 @@ auth.onAuthStateChanged(firebaseUser => {
                             method: "GET"
                         }).then(function (response) {
                             if (response) {
-                                for (j = 0; j < 3; j++) {
+                                for (var j = 0; j < 3; j++) {
                                     // creating html elements and display results
                                     var eventName = $("<p>").html(`<b>${response.events[j].name}</b>`);
                                     var eventGroup = $("<p>").text(response.events[j].group.name);
@@ -119,29 +117,14 @@ function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
                 var photoQueryUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=100&photoreference=${photoRef}&key=${apiKey}`;
                 var image = $("<img>").attr("id", `place-image${[i]}`);
                 image.attr("src", photoQueryUrl);
-                // creating the url to retrieve recommended venue's google maps url
-                var placeId = nearbyResult[i].place_id;
-                var placeDetailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&fields=url&key=${apiKey}`;
+                // creating html elements to display results
                 var newDiv = $("<div>").attr("class", "row");
-                        var imageDiv = $("<div>").attr("class", "col-md-4");
-                        imageDiv.append(image);
-                        var textDiv = $("<div>").attr("class", "col-md-8")
-                        textDiv.append(a, placeRating, placeAddress);
-                        newDiv.append(imageDiv, textDiv);
-                        $("#" + divName).append(newDiv);
-                $.ajax({
-                    url: corsAnywhereUrl + placeDetailsUrl,
-                    method: "GET"
-                })
-                    .then(function (response) {
-                        var venueLink = response.result.url;
-                        console.log(venueLink);
-                        // creating html elements to display results
-                        var a = $("<a>")
-                        a.attr("href", venueLink);
-                        a.attr("target", "blank");
-                        a.append(placeName); 
-                    });
+                var imageDiv = $("<div>").attr("class", "col-md-4");
+                imageDiv.append(image);
+                var textDiv = $("<div>").attr("class", "col-md-8")
+                textDiv.append(placeName, placeRating, placeAddress);
+                newDiv.append(imageDiv, textDiv);
+                $("#" + divName).append(newDiv);
             };
         });
 };
