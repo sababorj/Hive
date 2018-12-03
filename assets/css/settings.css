@@ -169,3 +169,20 @@ body {
 #animal {
     width: 100%;
 }
+#value-id {
+    width: 130px;
+}
+
+#join-btn {
+    color: white;
+    background-color: black;
+}
+
+#foot-post {
+    background-color: transparent;
+    color: black;   
+}
+
+#copy {
+    
+}
