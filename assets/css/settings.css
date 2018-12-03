@@ -1,0 +1,171 @@
+img {
+    width: 100%;  
+}
+.jumbotron
+{
+    margin-top: -10px;
+    background-color:blanchedalmond;
+    
+}
+
+p
+{
+  margin-top: 0%; 
+  text-align: center;
+  font-weight: bold;
+  background-color:#CECECE;
+  color:black;
+  width: 100%;
+  height: 25px;
+}
+.card {
+    margin-bottom: 20px;
+}
+
+h1,h5
+{
+    
+    color: royalblue;
+}
+h5
+{
+    margin-left:2%;
+    color: black;
+}
+h6
+{
+    color:grey;
+}
+button{
+    width: 100%
+}
+.col-lg-5
+{
+    margin-left: 17px;
+}
+
+.imageselected
+{
+    border:10px solid #FFF6AA;
+
+}
+
+
+.close
+{
+    float:right;
+    width:14%;
+    color:black;
+}
+
+.btnclose
+{
+    margin-bottom:1%;
+    width:25%;
+    align-content: center;
+    background-color: grey;
+    font: white;
+}
+
+i
+{
+    color:black;
+    size:1px;
+    margin-left: 1%;
+    margin-top:1%;
+}
+
+.card-header
+{
+    background-color: #343a40;
+    color:white;
+    font:bold;
+    font-weight: 500;
+}
+
+#save-change:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+#Backbtn:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+
+#save-change {
+    background-color: lightseagreen;
+    font-weight: bold;
+    color:white;
+}
+
+#Backbtn{
+    background-color: grey;
+    color:black;
+    font-weight: bold;
+}
+
+.backlink{
+    color:white;
+}
+
+.backlink:hover
+{
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+.btnclose:hover
+{
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+#nav-logo {
+    height: 80px;
+    width: 300px;    ;
+}
+
+.nav-link {
+        background-color: transparent; 
+        color: white; 
+        border: solid 2px white;
+        margin-left: 10px;
+}
+body {
+  background-image: url("http://happyapple.us/wp-content/uploads/2013/04/honeycomb.jpg");
+}
+
+#profile-btn:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+#profile-btn {
+  background-color: transparent;
+  border: solid 2px white;
+  float: right;
+}
+
+.nav-link:hover {
+    background-color: lightyellow;
+    color: black;
+    font-weight: bold;
+}
+
+.dropdown-items {
+    background-color: lightyellow;
+}
+
+.form-container {
+    margin-top : 20px;
+    margin-bottom: 0px;
+}
+#animal {
+    width: 100%;
+}

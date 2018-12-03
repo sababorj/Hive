@@ -116,12 +116,10 @@ $(document).on("click", "#login", function (event) {
         console.log(error.code)
         console.log(error.message)
         if (error.code === "auth/user-not-found") {
-            console.log("not found DUDEEEEEE");
             var LF1msg = $('<p>').attr("class", "Emsg").text("There is no account corresponding to this Email ID.")
             $("#username").after(LF1msg);
         }
         else if (error.code === "auth/wrong-password") {
-            console.log("Worngh pass dudeee!!!")
             var LF2msg = $('<p>').attr("class", "Emsg").text("Wrong password! try again")
             $("#Password").after(LF2msg);
         } else if (error.code === "auth/invalid-email") {
