@@ -36,6 +36,35 @@ body {
   border: solid 2px white;
   float: right;
 }
+.profile {
+  margin: 20px 0;
+}
+
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+  border: 2px #343a40 solid;
+}
+.profile-userpic img {
+  margin: 0 auto;
+  width: 90%;
+  height: 50%;
+  margin-left: 5%;
+  border-radius: 50%;
+
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+  border: 2px #343a40 solid;
+}
 
 #img-card {
     padding: 125px;
