@@ -122,24 +122,25 @@ function gettingGooglePlacesInfo(corsAnywhereUrl, url, apiKey, divName) {
                 // creating the url to retrieve recommended venue's google maps url
                 var placeId = nearbyResult[i].place_id;
                 var placeDetailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&fields=url&key=${apiKey}`;
-                $.ajax({
-                    url: corsAnywhereUrl + placeDetailsUrl,
-                    method: "GET"
-                })
-                    .then(function (response) {
-                        var venueLink = response.result.url;
-                        // creating html elements to display results
-                        var a = $("<a>")
-                        a.attr("href", venueLink);
-                        a.attr("target", "blank");
-                        a.append(placeName);
-                        var newDiv = $("<div>").attr("class", "row");
+                var newDiv = $("<div>").attr("class", "row");
                         var imageDiv = $("<div>").attr("class", "col-md-4");
                         imageDiv.append(image);
                         var textDiv = $("<div>").attr("class", "col-md-8")
                         textDiv.append(a, placeRating, placeAddress);
                         newDiv.append(imageDiv, textDiv);
                         $("#" + divName).append(newDiv);
+                $.ajax({
+                    url: corsAnywhereUrl + placeDetailsUrl,
+                    method: "GET"
+                })
+                    .then(function (response) {
+                        var venueLink = response.result.url;
+                        console.log(venueLink);
+                        // creating html elements to display results
+                        var a = $("<a>")
+                        a.attr("href", venueLink);
+                        a.attr("target", "blank");
+                        a.append(placeName); 
                     });
             };
         });
