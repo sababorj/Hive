@@ -110,7 +110,6 @@ auth.onAuthStateChanged(firebaseUser => {
                         gatherNewData();
                          // move to the profile page
                          window.location.href = "profile.html";
-
                     }
                 })
             })
