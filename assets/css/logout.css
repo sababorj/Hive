@@ -1,3 +1,9 @@
+.logout-div {
+    background-color: #343a40;
+    color: white;
+    font-family: 'Muli', sans-serif;
+}
+    
 #nav-logo {
     height: 90px;
 }
@@ -24,6 +30,7 @@
     font-weight: bold;
 }
 
+
 .dropdown-item {
     background-color: lightyellow;
 }
@@ -33,8 +40,7 @@
 }
 
 .logout2 {
-  font-family: 'Permanent Marker', cursive;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Muli', sans-serif;
     text-align: center;
 }
 
