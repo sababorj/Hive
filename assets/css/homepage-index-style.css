@@ -55,7 +55,8 @@ body {
 
 #group-1{
     margin-top: 50px;
-    background-color: rgb(112, 112, 112);
+    margin-bottom: 50px;
+    background-color: #333;
     color: white;
     padding: 50px;
     padding-bottom: 10px;

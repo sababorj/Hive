@@ -1,3 +1,5 @@
+/* Navigation */
+
 #nav-logo {
     height: 100px;
 }
@@ -8,6 +10,19 @@
         border: solid 2px white;
         margin-left: 10px;
 }
+
+.nav-link:hover {
+  background-color: lightyellow;
+  color: black;
+  font-weight: bold;
+}
+
+.dropdown-items {
+  background-color: lightyellow;
+}
+
+
+/* Body */ 
 body {
   background-image: url("http://happyapple.us/wp-content/uploads/2013/04/honeycomb.jpg");
 }
@@ -20,16 +35,6 @@ body {
   background-color: transparent;
   border: solid 2px white;
   float: right;
-}
-
-.nav-link:hover {
-    background-color: lightyellow;
-    color: black;
-    font-weight: bold;
-}
-
-.dropdown-items {
-    background-color: lightyellow;
 }
 
 #img-card {
