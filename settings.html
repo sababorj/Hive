@@ -17,10 +17,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/homepage-index-style.css">
+    <link rel="stylesheet" href="assets/css/settings.css">
+
 
     <!-- jQuery cdn -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
@@ -32,55 +36,248 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <i class="fas fa-city" id="city-btn"></i>
-        <form class="form-inline">
-            <button class="btn btn-outline-secondary" id="profile-btn" type="button" href="Profile.html">My Profile</button>
-            <button class="btn btn-outline-secondary" id="settings-btn" type="button" href="index.html">Home</button>
-        </form>
+        <a class="navbar-brand" href="index.html"> <img id="nav-logo" src="assets/images/hive-logo.png" title="mylogo.png"></a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" id="profile-btn" href="./profile.html">My Profile</a>
+            </li>
+            <br>
+            <li class="nav-item dropdown">
+                <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">Account</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" id="logout-btn" href="#">Log Out</a>
+                </div>
+            </li>
+        </ul>
     </nav>
-
     <!-- End Nav -->
-
-
-
-    <img src="assets/images/settings-hero.png" class="img-fluid" alt="Responsive image">
-
-
-    <div class="container">
-        <div class="row pad-top">
-                <div class="page-header">
-                        <h1>Settings</h1>
-                    </div>
-        </div>
+    <div class="container form-container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="http://placehold.it/150x150" alt="Placeholder" class="img-thumbnail">
-                    </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-6">
-                        <p>
-                            Change Your Settings Here:
-                            What should go here? Dropdowns? Button? Reroute to interets page? 
-                        </p>
-                    </div>
-                    <div class="col-md-1"></div>
+            <div class="col-md-12">
+                <!-- Register Now  -->
+                <div class="card mb-4">
+                    <div class="card-header">Setting</div>
+                    <div class="card-body">
 
+                        <!-- Entry Form -->
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="first-input">First Name</label>
+                                    <input class="form-control" id="first-input" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="last-input">Last Name</label>
+                                    <input class="form-control" id="last-input" type="text">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="birthday-input">Birth Date</label>
+                                    <input class="form-control" id="birth-input" type="date"
+                                        min="00/00/0000">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="zip-input">Zip Code</label>
+                                    <input class="form-control" id="zip-input" type="number"
+                                        data-bind="value:replyNumber">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="pass-input">Change your favorite animal!</label>
+                                                    <select class="form-control" id="animal">
+                                                        <option id="previousPet"></option>
+                                                        <option>Dog</option>
+                                                        <option>Cat</option>
+                                                        <option>Bird</option>
+                                                        <option>Ferret</option>
+                                                        <option>Turtle</option>
+                                                        <option>Rabbit</option>
+                                                        <option>Guinea pig</option>
+                                                        <option>Tortoise</option>
+                                                        <option>Hamster</option>
+                                                        <option>Tiger</option>
+                                                        <option>Lion</option>
+                                                    </select>
+                                            </div>
+                                </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
-            <!--Create Card taking up 4 Columns-->
-            <!-- <div class="col-md-4">
-                <div class="card mt-2">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Contact Support</h6>
-                        <p class="card-text">The Hive Busybees are here to help. Email support@thehive.com for assistance.</p>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Social Interests (Please select 2)
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img id="art_gallery" img-data="places" class="image social" src="assets/images/art.jpg"
+                            data-state="notselected" />
+                        <p>Art</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="restaurant" class="image social" img-data="places" src="assets/images/restaurant.jpg" />
+                        <p>Restaurants</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="cafe" class="image social" img-data="places" src="assets/images/cafe.jpg" />
+                        <p>Cafes</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="gym" class="image social" img-data="places" src="assets/images/gym.jpg" />
+                        <p>Fitness</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="movie_theater" class="image social" img-data="places" src="assets/images/movies.jpg" />
+                        <p>Movies</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="museum" class="image social" img-data="places" src="assets/images/museums.jpg" />
+                        <p>Culture</p>
                     </div>
                 </div>
-            </div> -->
+                <div class="row">
+                    <div class="col-md-2">
+                        <img id="night_club" class="image social" img-data="places" src="assets/images/nightlife.jpg" />
+                        <p>Nightlife</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="park" class="image social" img-data="places" src="assets/images/outdoors.jpg" />
+                        <p>Outdoors</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="spa" class="image social" img-data="places" src="assets/images/spa.jpg" />
+                        <p>Health & Beauty</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="zoo" class="image social" img-data="places" src="assets/images/wildlife.jpg" />
+                        <p>Wildlife</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="library" class="image social" img-data="places" src="assets/images/reading.jpg" />
+                        <p>Reading</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="department_store" class="image social" img-data="places" src="assets/images/shopping.jpg" />
+                        <p>Shopping</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Professional Interests (Please select 1)
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img id="technology" class="image professional" img-data="meetup" src="assets/images/technology.jpg" />
+                        <p class="meetup">Technology</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="startup" class="image professional" img-data="meetup" src="assets/images/startup.jpg" />
+                        <p class="meetup">Entrepreneurship</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="marketing" class="image professional" img-data="meetup" src="assets/images/marketing.jpg" />
+                        <p class="meetup">Marketing</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="science" class="image professional" img-data="meetup" src="assets/images/science.jpg" />
+                        <p class="meetup">Science</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="wellness" class="image professional" img-data="meetup" src="assets/images/wellness.jpg" />
+                        <p class="meetup">Wellness</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img id="engineering" class="image professional" img-data="meetup" src="assets/images/engineering.jpg" />
+                        <p class="meetup">Engineering</p>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                    <div class="col-md-4">
+                        <button id="save-change" class="btn btn-outline-light">Save Setting Changes</button>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h5 class="myModalLabel" id="exampleModalCenterTitle">Info Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Uh oh! You have reached your limit of selecting interests.</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btnclose btn-outline-light" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!--Footer begins-->
+    <footer class="ct-footer" id="main-foot">
+        <div class="container" id="footer-id">
+            <form name="contentForm" enctype="multipart/form-data" method="post" action="">
+                <div class="ct-footer-pre text-center-lg">
+                    <div class="inner" id="join-hive">
+                        <span>Join The Hive to receive updates, news & events!</span>
+                    </div>
+                    <div class="inner">
+                        <div class="form-group" id="value-id">
+                            <input name="formfields[nl_email]" id="nl_email" class="validate[required]" placeholder="Enter your email address"
+                                type="text" value=""> <label for="nl_email" class="sr-only">Email Address</label>
+                            <button type="submit" class="btn btn-motive">Join</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="ct-footer-meta text-center-sm" id="hivenum">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <address>
+                            <span>The Hive<br></span>500 5th Ave.<br>
+                            San Diego, California, 92101<br>
+                            <span>Phone: <a href="tel:5555555555">(555) 555-5555</a></span>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ct-footer-post">
+            <div class="container">
+                <div class="inner-right">
+                    <p>Copyright © 2016 TheHiveCo.&nbsp;<a href="">Privacy Policy</a></p>
+                    <p><a class="ct-u-motive-color" href="" target="_blank">Web Design</a> by: The Dream Team <a href=""
+                            target="_blank"></a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer Ends-->
 
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -89,6 +286,10 @@
 
     <!-- Bootstrap JavaScript CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- local code link -->
+    <script src="assets/javascript/authentication.js"></script>
+    <script src="assets/javascript/settings.js"></script>
 
 </body>
 
