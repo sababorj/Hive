@@ -1,2 +1,2 @@
 # Hiva
-https://sababorj.github.io/Hiva/
+https://sababorj.github.io/Hive/
